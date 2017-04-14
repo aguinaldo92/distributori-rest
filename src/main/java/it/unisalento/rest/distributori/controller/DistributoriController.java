@@ -58,11 +58,11 @@ public class DistributoriController implements ModelDriven<Object> {
 			
 			//carico il distributore nel JSON
 			distributore_JSON.clear();
-			distributore_JSON.put("id", distributore.getId());
-			distributore_JSON.put("lat", distributore.getLat());
-			distributore_JSON.put("lon", distributore.getLon());
-			distributore_JSON.put("posizioneEdificio", distributore.getPosizioneEdificio());
-			distributore_JSON.put("indirizzo", distributore.getIndirizzo());
+			distributore_JSON.put("IdDistributore", distributore.getId());
+			distributore_JSON.put("Lat", distributore.getLat());
+			distributore_JSON.put("Lon", distributore.getLon());
+			distributore_JSON.put("PosizioneEdificio", distributore.getPosizioneEdificio());
+			distributore_JSON.put("Indirizzo", distributore.getIndirizzo());
 			
 			//carico le categorie fornite per l'i-simo distributore
 			for (@SuppressWarnings("unchecked")
@@ -70,7 +70,7 @@ public class DistributoriController implements ModelDriven<Object> {
 				CategorieFornite categoriaFornita = iterator.next();
 				categoriaFornita_JSON.clear();
 				if (categoriaFornita.getCategoria().getNome().compareTo("Generica") != 0){
-					categoriaFornita_JSON.put("IDCategoria", categoriaFornita.getCategoria().getId());
+					categoriaFornita_JSON.put("IdCategoria", categoriaFornita.getCategoria().getId());
 					categoriaFornita_JSON.put("Nome", categoriaFornita.getCategoria().getNome());
 				
 					categorieFornite_JSON.add(categoriaFornita_JSON);
@@ -85,8 +85,8 @@ public class DistributoriController implements ModelDriven<Object> {
 				ProdottiErogati prodottoErogato = iterator.next();
 				prodottoErogato_JSON.clear();
 				if (prodottoErogato.getProdotto().getNome().compareTo("vuoto") != 0){
-					prodottoErogato_JSON.put("IDProdottoErogato", prodottoErogato.getId());
-					prodottoErogato_JSON.put("IDProdotto", prodottoErogato.getProdotto().getId());
+					prodottoErogato_JSON.put("IdProdottoErogato", prodottoErogato.getId());
+					prodottoErogato_JSON.put("IdProdotto", prodottoErogato.getProdotto().getId());
 					prodottoErogato_JSON.put("Nome", prodottoErogato.getProdotto().getNome());
 					prodottoErogato_JSON.put("Quantita", prodottoErogato.getQuantita());
 				
