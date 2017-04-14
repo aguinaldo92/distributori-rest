@@ -85,7 +85,6 @@ public class DistributoriController implements ModelDriven<Object> {
 				ProdottiErogati prodottoErogato = iterator.next();
 				prodottoErogato_JSON.clear();
 				if (prodottoErogato.getProdotto().getNome().compareTo("vuoto") != 0){
-					prodottoErogato_JSON.put("IdProdottoErogato", prodottoErogato.getId());
 					prodottoErogato_JSON.put("IdProdotto", prodottoErogato.getProdotto().getId());
 					prodottoErogato_JSON.put("Nome", prodottoErogato.getProdotto().getNome());
 					prodottoErogato_JSON.put("Quantita", prodottoErogato.getQuantita());
