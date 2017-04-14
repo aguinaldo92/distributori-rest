@@ -19,23 +19,48 @@ import it.unisalento.rest.distributori.model.DistributoreModel;
 public class DistributoreDaoImpl extends BaseDaoImpl<Distributore> implements DistributoreDao {
 
 	@Override
-	public ArrayList<DistributoreModel> getDistributoriVicini(BigDecimal lat, BigDecimal lon, Integer distanza) {
+	public ArrayList<Distributore> getDistributoriVicini(BigDecimal lat, BigDecimal lon, Integer distanza) {
 		try{
 			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
-			String hql = "select id,lat,lon,indirizzo,posizioneEdificio from Distributore d where ( d.lat - :lat < :distanza ) and  ( d.lon - :lon < :distanza ) " ;
+			String hql = "select  D "+
+					"from Distributore as D join D.categorieFornites as CF join CF.categoria as C "+
+					"where ( D.lat - :lat < :distanza ) and  ( D.lon - :lon < :distanza ) "+
+					"group by D.id" ;
 			Query query = session.createQuery(hql);
 			query.setBigDecimal("lat", lat);
 			query.setBigDecimal("lon", lon);
 			query.setInteger("distanza", distanza);
-			ArrayList<DistributoreModel> listDistributoreModel = (ArrayList<DistributoreModel>) query.list();
+			ArrayList<Distributore> listDistributori = (ArrayList<Distributore>) query.list();
 			tx.commit();
-			return listDistributoreModel;
+			return listDistributori;
 
 		} finally {
 			session.close();
 		}
 	}
+
+//	@Override
+//	public ArrayList<DistributoreModel> getDistributoriVicini(BigDecimal lat, BigDecimal lon, Integer distanza) {
+//		try{
+//			session = HibernateUtil.getSession();
+//			tx = session.beginTransaction();
+//			String hql = "select  d.id,d.lat,d.lon,d.indirizzo,d.posizioneEdificio, group_concat(C.nome) "+
+//					"from Distributore as d join d.categorieFornites as CF join CF.categoria as C "+
+//					"where ( d.lat - :lat < :distanza ) and  ( d.lon - :lon < :distanza ) and C.nome != 'Generica' "+
+//					"group by d.id" ;
+//			Query query = session.createQuery(hql);
+//			query.setBigDecimal("lat", lat);
+//			query.setBigDecimal("lon", lon);
+//			query.setInteger("distanza", distanza);
+//			ArrayList<DistributoreModel> listDistributori = (ArrayList<DistributoreModel>) query.list();
+//			tx.commit();
+//			return listDistributori;
+//
+//		} finally {
+//			session.close();
+//		}
+//	}
 
 	/*
 	@SuppressWarnings("unchecked")

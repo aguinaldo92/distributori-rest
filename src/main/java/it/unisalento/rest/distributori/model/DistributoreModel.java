@@ -1,16 +1,16 @@
 package it.unisalento.rest.distributori.model;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 public class DistributoreModel {
 	private Integer id;
 	private BigDecimal lat;
 	private BigDecimal lon;
-	private String posizioneEdificio;
 	private String indirizzo;
-	private ArrayList<?> categorieFornite;
-	private ArrayList<?> prodottiForniti;
+	private String posizioneEdificio;
+	private String categorieFornite;
+//	private ArrayList<?> prodottiForniti;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -41,18 +41,19 @@ public class DistributoreModel {
 	public void setIndirizzo(String indirizzo) {
 		this.indirizzo = indirizzo;
 	}
-	public ArrayList<?> getCategorieFornite() {
+	public String getCategorieFornite() {
 		return categorieFornite;
 	}
-	public void setCategorieFornite(ArrayList<?> categorieFornite) {
+	public void setCategorieFornite(String categorieFornite) {
 		this.categorieFornite = categorieFornite;
 	}
-	public ArrayList<?> getProdottiForniti() {
-		return prodottiForniti;
-	}
-	public void setProdottiForniti(ArrayList<?> prodottiForniti) {
-		this.prodottiForniti = prodottiForniti;
-	}
+
+//	public ArrayList<?> getProdottiForniti() {
+//		return prodottiForniti;
+//	}
+//	public void setProdottiForniti(ArrayList<?> prodottiForniti) {
+//		this.prodottiForniti = prodottiForniti;
+//	}
 	
 	
 
