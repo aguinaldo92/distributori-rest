@@ -9,8 +9,6 @@ import org.apache.struts2.rest.HttpHeaders;
 import com.opensymphony.xwork2.ModelDriven;
 
 import it.unisalento.rest.distributori.domain.Categoria;
-import it.unisalento.rest.distributori.domain.CategorieFornite;
-import it.unisalento.rest.distributori.domain.Distributore;
 import it.unisalento.rest.distributori.factory.FactoryDao;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
