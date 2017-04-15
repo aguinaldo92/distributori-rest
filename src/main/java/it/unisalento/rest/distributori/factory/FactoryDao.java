@@ -6,14 +6,12 @@ package it.unisalento.rest.distributori.factory;
 import it.unisalento.rest.distributori.dao.CategoriaDao;
 import it.unisalento.rest.distributori.dao.CategorieForniteDao;
 import it.unisalento.rest.distributori.dao.DistributoreDao;
-import it.unisalento.rest.distributori.dao.FamigliaDao;
-import it.unisalento.rest.distributori.dao.FamiglieProdottoDao;
 import it.unisalento.rest.distributori.dao.FeedbackDao;
 import it.unisalento.rest.distributori.dao.PersonaDao;
 import it.unisalento.rest.distributori.dao.ProdottiErogatiDao;
 import it.unisalento.rest.distributori.dao.ProdottoDao;
 import it.unisalento.rest.distributori.dao.ProduttoreDao;
-import it.unisalento.rest.distributori.dao.StabilimentoDao;
+import it.unisalento.rest.distributori.daoimpl.CategoriaDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.CategorieForniteDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.DistributoreDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.FeedbackDaoImpl;
@@ -47,11 +45,11 @@ public class FactoryDao {
 		return new ProdottoDaoImpl();
 	}
 
-//	public CategoriaDao getCategoriaDao(){
-//		//System.out.println("FactoryDao: getCategoriaDao");
-//		return new CategoriaDaoImpl();
-//	}
-//
+	public CategoriaDao getCategoriaDao(){
+		//System.out.println("FactoryDao: getCategoriaDao");
+		return new CategoriaDaoImpl();
+	}
+
 //	public FamigliaDao getFamigliaDao(){
 //		//System.out.println("FactoryDao: getFamigliaDao");
 //		return new FamigliaDaoImpl();
