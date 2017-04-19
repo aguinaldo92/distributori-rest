@@ -7,8 +7,23 @@
 	<constant name="struts.mapper.class" value="rest" />
 	<constant name="struts.convention.action.suffix" value="Controller" />
 	<constant name="struts.convention.action.mapAllMatches" value="true" />
-	<constant name="struts.convention.default.parent.package" value="rest-default" />
+	<constant name="struts.convention.default.parent.package" value="default" />
 	<constant name="struts.convention.package.locators" value="controller" />
+	<constant name="struts.rest.content.restrictToGET" value="false" />
 
+
+	<package name="default" extends="rest-default">
+		<interceptors>
+		<interceptor name="LoginInterceptor"
+				class="it.unisalento.rest.distributori.interceptor.LoginInterceptor" />
+				
+			<interceptor-stack name="LoginStack">
+				<interceptor-ref name="LoginInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		
+		
+	</package>
 	
 </struts> 

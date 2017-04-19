@@ -6,6 +6,9 @@ package it.unisalento.rest.distributori.controller;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.rest.DefaultHttpHeaders;
 import org.apache.struts2.rest.HttpHeaders;
@@ -20,7 +23,7 @@ import it.unisalento.rest.distributori.factory.FactoryDao;
  * @author aguinaldo
  *
  */
-
+@InterceptorRef("LoginStack")
 public class DistributoriController implements ModelDriven<Object> {
 	private BigDecimal lat;
 	private BigDecimal lon;
@@ -29,7 +32,7 @@ public class DistributoriController implements ModelDriven<Object> {
 
 	public HttpHeaders index() {
 		model =  (ArrayList<DistributoreModel>) FactoryDao.getIstance().getDistributoreDao().getDistributoriVicini(lat, lon, distanza);
-		
+		System.out.println("index");
 		return new DefaultHttpHeaders("index").disableCaching();
 	}
 	
@@ -38,6 +41,7 @@ public class DistributoriController implements ModelDriven<Object> {
         return new DefaultHttpHeaders("show");
             
     }
+  
 	
 	public String add(){
 		//Integer empId = Integer.parseInt(id);
