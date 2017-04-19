@@ -33,6 +33,10 @@
     	<groupId>org.apache.struts</groupId>
     	<artifactId>struts2-json-plugin</artifactId>
     </dependency>
+    <dependency>
+    	<groupId>com.auth0</groupId>
+    	<artifactId>java-jwt</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <finalName>distributori-rest</finalName>
@@ -68,6 +72,11 @@
   			<groupId>org.apache.struts</groupId>
   			<artifactId>struts2-json-plugin</artifactId>
   			<version>2.5.10.1</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>com.auth0</groupId>
+  			<artifactId>java-jwt</artifactId>
+  			<version>3.1.0</version>
   		</dependency>
   	</dependencies>
   </dependencyManagement>
