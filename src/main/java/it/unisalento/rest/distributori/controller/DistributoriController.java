@@ -40,19 +40,15 @@ public class DistributoriController implements ModelDriven<Object> {
 		
 		JSONObject categoriaFornita_JSON = new JSONObject();
 		JSONArray categorieFornite_JSON = new JSONArray();
-		JSONObject ListCategorieFornite_JSON = new JSONObject();
 
 		JSONObject prodottoErogato_JSON = new JSONObject();
 		JSONArray prodottiErogati_JSON = new JSONArray();
-		JSONObject ListProdottiErogati_JSON = new JSONObject();
 		
 		distributoriList =  FactoryDao.getIstance().getDistributoreDao().getDistributoriVicini(lat, lon, distanza);
 		
 		for (int i=0; i<distributoriList.size(); i++) {
-			categorieFornite_JSON.clear();
-			ListCategorieFornite_JSON.clear();			
+			categorieFornite_JSON.clear();			
 			prodottiErogati_JSON.clear();
-			ListProdottiErogati_JSON.clear();
 			
 			distributore =  distributoriList.get(i);
 			
@@ -76,8 +72,9 @@ public class DistributoriController implements ModelDriven<Object> {
 					categorieFornite_JSON.add(categoriaFornita_JSON);
 				}
 			}
-			ListCategorieFornite_JSON.put("CategorieFornite", categorieFornite_JSON);
-			distributore_JSON.put("ListCategorieFornite", ListCategorieFornite_JSON);
+//			ListCategorieFornite_JSON.put("categorieFornite", categorieFornite_JSON);
+//			distributore_JSON.put("listCategorieFornite", ListCategorieFornite_JSON);
+			distributore_JSON.put("listCategorieFornite", categorieFornite_JSON);
 			
 			//carico i prodotti erogati per l'i-simo distributore
 			for (@SuppressWarnings("unchecked")
@@ -92,13 +89,15 @@ public class DistributoriController implements ModelDriven<Object> {
 					prodottiErogati_JSON.add(prodottoErogato_JSON);
 				}
 			}
-			ListProdottiErogati_JSON.put("prodottiErogati", prodottiErogati_JSON);
-			distributore_JSON.put("listProdottiErogati", ListProdottiErogati_JSON);
+//			ListProdottiErogati_JSON.put("prodottiErogati", prodottiErogati_JSON);
+//			distributore_JSON.put("listProdottiErogati", ListProdottiErogati_JSON);
+			distributore_JSON.put("listProdottiErogati", prodottiErogati_JSON);
 			
 			distributori_JSON.add(distributore_JSON);
 			
 		}
 
+		ListDistributori_JSON.put("numero elementi", distributoriList.size());
 		ListDistributori_JSON.put("distributori", distributori_JSON);
 		
 		model = ListDistributori_JSON;
