@@ -45,8 +45,8 @@ public class AcquistaController  implements ModelDriven<Object> {
 		
 		result = new JSONObject();
 		result.put("result", true);
-		result.put("ID", acquisto.getId());
-		result.put("Quantità aggiornata", prodotto_erogato.getQuantita());
+		result.put("id", acquisto.getId());
+		result.put("quantità aggiornata", prodotto_erogato.getQuantita());
 		
 		return new DefaultHttpHeaders("create").disableCaching();
 	}

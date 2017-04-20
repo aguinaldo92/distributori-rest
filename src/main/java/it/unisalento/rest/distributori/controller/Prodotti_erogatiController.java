@@ -34,22 +34,22 @@ public class Prodotti_erogatiController implements ModelDriven<Object> {
 			prodottoErogato = iterator.next();
 			prodottoErogato_JSON.clear();
 			if (prodottoErogato.getProdotto().getNome().compareTo("vuoto") != 0){
-				prodottoErogato_JSON.put("IdProdottoErogato", prodottoErogato.getId());
-				prodottoErogato_JSON.put("Scaffale", prodottoErogato.getScaffale());
-				prodottoErogato_JSON.put("Posto", prodottoErogato.getPosto());
-				prodottoErogato_JSON.put("Quantita", prodottoErogato.getQuantita());
-				prodottoErogato_JSON.put("IdProdotto", prodottoErogato.getProdotto().getId());
-				prodottoErogato_JSON.put("Nome", prodottoErogato.getProdotto().getNome());
-				prodottoErogato_JSON.put("Prezzo", prodottoErogato.getProdotto().getPrezzo());
-				prodottoErogato_JSON.put("Sconto", prodottoErogato.getProdotto().getScontoUtenti());
-				prodottoErogato_JSON.put("Foto", prodottoErogato.getProdotto().getFoto().replaceAll("\\.", "_64sizes."));
-				prodottoErogato_JSON.put("Produttore", prodottoErogato.getProdotto().getStabilimento().getProduttore().getNome());
+				prodottoErogato_JSON.put("idProdottoErogato", prodottoErogato.getId());
+				prodottoErogato_JSON.put("scaffale", prodottoErogato.getScaffale());
+				prodottoErogato_JSON.put("posto", prodottoErogato.getPosto());
+				prodottoErogato_JSON.put("quantita", prodottoErogato.getQuantita());
+				prodottoErogato_JSON.put("idProdotto", prodottoErogato.getProdotto().getId());
+				prodottoErogato_JSON.put("nome", prodottoErogato.getProdotto().getNome());
+				prodottoErogato_JSON.put("prezzo", prodottoErogato.getProdotto().getPrezzo());
+				prodottoErogato_JSON.put("sconto", prodottoErogato.getProdotto().getScontoUtenti());
+				prodottoErogato_JSON.put("foto", prodottoErogato.getProdotto().getFoto().replaceAll("\\.", "_64sizes."));
+				prodottoErogato_JSON.put("produttore", prodottoErogato.getProdotto().getStabilimento().getProduttore().getNome());
 			
 				prodottiErogati_JSON.add(prodottoErogato_JSON);
 			}
 		}
 		
-		ListProdotti_JSON.put("ProdottiErogati", prodottiErogati_JSON);
+		ListProdotti_JSON.put("prodottiErogati", prodottiErogati_JSON);
 		
 		model = ListProdotti_JSON;
 		

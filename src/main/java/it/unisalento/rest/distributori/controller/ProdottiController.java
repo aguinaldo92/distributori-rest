@@ -32,14 +32,14 @@ public class ProdottiController implements ModelDriven<Object> {
 			prodotto = iterator.next();
 			prodotto_JSON.clear();
 			if (prodotto.getNome().compareTo("vuoto") != 0){
-				prodotto_JSON.put("IdProdotto", prodotto.getId());
-				prodotto_JSON.put("Nome", prodotto.getNome());
+				prodotto_JSON.put("idProdotto", prodotto.getId());
+				prodotto_JSON.put("nome", prodotto.getNome());
 			
 				prodotti_JSON.add(prodotto_JSON);
 			}
 		}
 		
-		ListProdotti_JSON.put("Prodotti", prodotti_JSON);
+		ListProdotti_JSON.put("prodotti", prodotti_JSON);
 		
 		model = ListProdotti_JSON;
 		

@@ -22,10 +22,10 @@ public class ProfiloController implements ModelDriven<Object> {
 		
 		Persona persona = FactoryDao.getIstance().getPersonaDao().get(idPersona, Persona.class);
 		
-		persona_JSON.put("IdPersona", persona.getId());
-		persona_JSON.put("Nome", persona.getNome());
-		persona_JSON.put("Cognome", persona.getCognome());
-		persona_JSON.put("Email", persona.getEmail());
+		persona_JSON.put("idPersona", persona.getId());
+		persona_JSON.put("nome", persona.getNome());
+		persona_JSON.put("cognome", persona.getCognome());
+		persona_JSON.put("email", persona.getEmail());
 		
 		model_GET = persona_JSON;
 		

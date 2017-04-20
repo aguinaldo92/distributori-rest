@@ -32,14 +32,14 @@ public class CategorieController implements ModelDriven<Object> {
 			categoria = iterator.next();
 			categoria_JSON.clear();
 			if (categoria.getNome().compareTo("Generica") != 0){
-				categoria_JSON.put("IdCategoria", categoria.getId());
-				categoria_JSON.put("Nome", categoria.getNome());
+				categoria_JSON.put("idCategoria", categoria.getId());
+				categoria_JSON.put("nome", categoria.getNome());
 			
 				categorie_JSON.add(categoria_JSON);
 			}
 		}
 		
-		ListCategorie_JSON.put("Categorie", categorie_JSON);
+		ListCategorie_JSON.put("categorie", categorie_JSON);
 		
 		model = ListCategorie_JSON;
 		

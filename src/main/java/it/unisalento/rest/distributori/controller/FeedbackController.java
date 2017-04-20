@@ -32,7 +32,7 @@ public class FeedbackController implements ModelDriven<Object> {
 		feedback.setId(FactoryDao.getIstance().getFeedbackDao().set(feedback));
 		result = new JSONObject();
 		result.put("result", true);
-		result.put("ID", feedback.getId());
+		result.put("id", feedback.getId());
 		
 		return new DefaultHttpHeaders("create").disableCaching();
 	}
