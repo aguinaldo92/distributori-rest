@@ -3,6 +3,7 @@
  */
 package it.unisalento.rest.distributori.factory;
 
+import it.unisalento.rest.distributori.dao.AcquistaDao;
 import it.unisalento.rest.distributori.dao.CategoriaDao;
 import it.unisalento.rest.distributori.dao.CategorieForniteDao;
 import it.unisalento.rest.distributori.dao.DistributoreDao;
@@ -11,6 +12,7 @@ import it.unisalento.rest.distributori.dao.PersonaDao;
 import it.unisalento.rest.distributori.dao.ProdottiErogatiDao;
 import it.unisalento.rest.distributori.dao.ProdottoDao;
 import it.unisalento.rest.distributori.dao.ProduttoreDao;
+import it.unisalento.rest.distributori.daoimpl.AcquistaDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.CategoriaDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.CategorieForniteDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.DistributoreDaoImpl;
@@ -87,5 +89,9 @@ public class FactoryDao {
 	public FeedbackDao getFeedbackDao(){
 		//System.out.println("FactoryDao: getFeedbackDao");
 		return new FeedbackDaoImpl();
+	}
+	public AcquistaDao getAcquistaDao(){
+		//System.out.println("FactoryDao: getAcquistaDao");
+		return new AcquistaDaoImpl();
 	}
 }
