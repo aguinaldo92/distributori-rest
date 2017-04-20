@@ -10,7 +10,6 @@ import org.hibernate.Query;
 
 import it.unisalento.rest.distributori.dao.DistributoreDao;
 import it.unisalento.rest.distributori.domain.Distributore;
-import it.unisalento.rest.distributori.model.DistributoreModel;
 
 /**
  * @author aguinaldo

@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import it.unisalento.rest.distributori.domain.Distributore;
-import it.unisalento.rest.distributori.model.DistributoreModel;
 
 /**
  * @author aguinaldo

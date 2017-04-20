@@ -3,7 +3,6 @@
  */
 package it.unisalento.rest.distributori.daoimpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
