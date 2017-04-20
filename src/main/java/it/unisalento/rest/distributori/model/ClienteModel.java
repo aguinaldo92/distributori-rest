@@ -2,6 +2,7 @@ package it.unisalento.rest.distributori.model;
 
 public class ClienteModel {
 	
+	private Integer id;
 	private String nome;
 	private String cognome;
 	private String email;
@@ -30,6 +31,12 @@ public class ClienteModel {
 	}
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	
