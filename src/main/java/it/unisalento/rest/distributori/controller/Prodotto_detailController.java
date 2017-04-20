@@ -23,7 +23,7 @@ public class Prodotto_detailController implements ModelDriven<Object> {
 		Prodotto prodotto = FactoryDao.getIstance().getProdottoDao().get(idProdotto, Prodotto.class);
 		
 		prodotto_JSON.put("IdProdotto", prodotto.getId());
-		prodotto_JSON.put("Foto", prodotto.getFoto());
+		prodotto_JSON.put("Foto", prodotto.getFoto().replaceAll("\\.", "_256sizes."));
 		prodotto_JSON.put("Nome", prodotto.getNome());
 		prodotto_JSON.put("Descrizione", prodotto.getDescrizione());
 		prodotto_JSON.put("Prezzo", prodotto.getPrezzo());
