@@ -40,7 +40,6 @@ public class ProfiloController implements ModelDriven<Object> {
 		persona.setEmail(model_POST.getEmail());
 		persona.setNome(model_POST.getNome());
 		persona.setPassword(model_POST.getPassword());
-		persona.setRuolo(2);
 		
 		
 		//aggiorno l'utente sul DB
