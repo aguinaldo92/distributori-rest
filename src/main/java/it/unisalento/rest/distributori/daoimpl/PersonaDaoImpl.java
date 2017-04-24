@@ -7,6 +7,8 @@ import it.unisalento.rest.distributori.dao.PersonaDao;
 import it.unisalento.rest.distributori.domain.Persona;
 
 import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  * @author aguinaldo
@@ -16,18 +18,19 @@ public class PersonaDaoImpl extends BaseDaoImpl<Persona> implements PersonaDao {
 
 	@Override
 	public Persona getPersonaByCredentials(String email, String password) {
+		Session session = null;
 		try{
-		session = HibernateUtil.getSession();
-		tx = session.beginTransaction();
-		Query query = session.createQuery("from Persona where email=:email and password=:password");
-		query.setString("email", email); 
-		query.setString("password", password);
-		Persona persona = (Persona) query.uniqueResult();
-		tx.commit();
-		return persona;
-		
+			session = HibernateUtil.getSession();
+			Transaction tx = session.beginTransaction();
+			Query query = session.createQuery("from Persona where email=:email and password=:password");
+			query.setString("email", email); 
+			query.setString("password", password);
+			Persona persona = (Persona) query.uniqueResult();
+			tx.commit();
+			return persona;
+
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 
@@ -37,9 +40,10 @@ public class PersonaDaoImpl extends BaseDaoImpl<Persona> implements PersonaDao {
 	 */
 	@Override
 	public boolean emailExists(String email, Integer my_ID) {
+		Session session = null;
 		try{
-			 session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			session = HibernateUtil.getSession();
+			Transaction tx = session.beginTransaction();
 			Query query;
 			query = session.createQuery("from Persona where email=:email and id!=:id");
 			query.setString("id", my_ID.toString());
@@ -52,15 +56,16 @@ public class PersonaDaoImpl extends BaseDaoImpl<Persona> implements PersonaDao {
 				return false;
 			}
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 
 	@Override
 	public boolean emailExists(String email) {
+		Session session = null;
 		try{
 			session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 			Query query;
 			query = session.createQuery("from Persona where email=:email");
 			query.setString("email", email);
@@ -72,7 +77,7 @@ public class PersonaDaoImpl extends BaseDaoImpl<Persona> implements PersonaDao {
 				return false;
 			}
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 

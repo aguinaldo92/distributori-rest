@@ -8,6 +8,8 @@ import java.util.List;
 
 
 import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import it.unisalento.rest.distributori.dao.ProdottoDao;
 import it.unisalento.rest.distributori.domain.Prodotto;
@@ -21,9 +23,10 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Prodotto> getAllProdotti() {
+		Session session = null;
 		try{
 			session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 			Query query = session.createQuery("from Prodotto as P where P.nome!=:vuoto order by P.nome");
 			query.setString("vuoto", "Vuoto");
 			List<Prodotto> list_prodotti = new ArrayList<Prodotto>();
@@ -31,7 +34,7 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 			tx.commit();
 			return list_prodotti;
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 
@@ -39,9 +42,10 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Prodotto> getAllProdottiFiltrati(List<String> list_fam_IDs, List<String> list_categ_IDs) {
+		Session session = null;
 		try{
 			session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 			String querystring="select distinct P from Prodotto as P inner join P.categoria as C inner join C.prodottos as P inner join P.famiglieProdottos as F where P.nome != :vuoto and ";
 
 			//aggiunta delle condizioni di filtraggio alla query
@@ -72,14 +76,15 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 			tx.commit();
 			return list_prodotti;
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 	@Override
 	public ArrayList<Prodotto> getProdottiCompatibiliByDistributore(Integer idDistributore) {
+		Session session = null;
 		try {
 			session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 			String hql = "select P from Distributore as D inner join D.categorieFornites as CF inner join CF.categoria as C1 inner join C1.prodottos as P inner join P.categoria as C2 where D.id = :idDistributore and C1.id = C2.id  order by C1.nome, P.nome" ;
 			Query query = session.createQuery(hql);
 			query.setInteger("idDistributore", idDistributore);
@@ -89,15 +94,16 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 			return listProdottiCompatibili;
 
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 
 	@Override
 	public Prodotto getProdottoVuoto(){
+		Session session = null;
 		try{
 			session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 			Query query = session.createQuery("from Prodotto as P where P.nome = :vuoto");
 			// hibernate non è case sensitive nelle clausole where 
 			query.setString("vuoto", "Vuoto");
@@ -108,7 +114,7 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 			return prodottoVuoto;
 
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 
 	}

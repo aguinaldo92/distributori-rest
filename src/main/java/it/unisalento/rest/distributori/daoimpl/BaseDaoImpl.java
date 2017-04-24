@@ -8,11 +8,12 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class BaseDaoImpl<T> implements BaseDao<T> {
-	Session session;
-	Transaction tx;
+
 
 	@Override
 	public int set(T entity) {
+		Session session = null;
+		Transaction tx = null;
 		try{
 			session = HibernateUtil.getSession();
 			tx = session.beginTransaction(); //inizio transazione
@@ -30,6 +31,8 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	@Override
 	public T get(int id, @SuppressWarnings("rawtypes") Class clazz){
+		Session session = null;
+		Transaction tx = null;
 		try{
 			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
@@ -46,6 +49,8 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	@Override
 	public List<T> getAll(@SuppressWarnings("rawtypes") Class clazz){
+		Session session = null;
+		Transaction tx = null;
 		try{
 			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
@@ -60,6 +65,8 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	@Override
 	public List<T> getAllSortedBy(@SuppressWarnings("rawtypes") Class clazz, String column) {
+		Session session = null;
+		Transaction tx = null;
 		try{
 			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
@@ -74,6 +81,8 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	@Override
 	public void update(T entity) {
+		Session session = null;
+		Transaction tx = null;
 		try{
 			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
@@ -89,6 +98,8 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	@Override
 	public void delete(T entity) {
+		Session session = null;
+		Transaction tx = null;
 		try{
 			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
