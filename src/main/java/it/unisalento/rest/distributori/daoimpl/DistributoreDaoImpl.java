@@ -39,6 +39,28 @@ public class DistributoreDaoImpl extends BaseDaoImpl<Distributore> implements Di
 		}
 	}
 
+	@Override
+	public Distributore getBestDistributoreByPersona(Integer idPersona) {
+		try{
+			session = HibernateUtil.getSession();
+			tx = session.beginTransaction();
+			String hql = "select D "+
+						"from Distributore as D inner join D.acquistas as A "+
+						"where A.persona.id = :idPersona "+
+						"group by A.distributore.id "+
+						"order by count(*) desc" ;
+			Query query = session.createQuery(hql);
+			query.setInteger("idPersona", idPersona);
+			ArrayList<Distributore> listDistributori = (ArrayList<Distributore>) query.list();
+			Distributore bestDistributore = listDistributori.get(0);
+			tx.commit();
+			return bestDistributore;
+
+		} finally {
+			session.close();
+		}
+	}
+
 //	@Override
 //	public ArrayList<DistributoreModel> getDistributoriVicini(BigDecimal lat, BigDecimal lon, Integer distanza) {
 //		try{
