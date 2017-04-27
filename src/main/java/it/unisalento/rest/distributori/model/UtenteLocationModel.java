@@ -7,31 +7,27 @@ public class UtenteLocationModel {
 	private BigDecimal lon;
 	private Integer distanza;
 	
-	public UtenteLocationModel(String lat_p,String lon_p, String distanza_p){
-		setLat(lat_p);
-		setLon(lon_p);
-		setDistanza(distanza_p);
-	}
 	public BigDecimal getLat() {
 		return lat;
 	}
-	public void setLat(String lat) {
-		this.lat = new BigDecimal(lat);
+	public void setLat(BigDecimal lat) {
+		this.lat = lat;
 	}
 	public BigDecimal getLon() {
 		return lon;
 	}
-	public void setLon(String lon) {
-		this.lon = new BigDecimal(lon);
+	public void setLon(BigDecimal lon) {
+		this.lon = lon;
 	}
-
 	public Integer getDistanza() {
 		return distanza;
 	}
-	public void setDistanza(String distanza) {
-		this.distanza = new Integer(distanza);
+	public void setDistanza(Integer distanza) {
+		this.distanza = distanza;
 	}
 	
+	
+
 	
 
 }
