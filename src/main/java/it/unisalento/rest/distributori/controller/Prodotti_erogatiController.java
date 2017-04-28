@@ -49,6 +49,7 @@ public class Prodotti_erogatiController implements ModelDriven<Object> {
 			}
 		}
 		
+		ListProdotti_JSON.put("numeroElementi", prodottiErogatiList.size());
 		ListProdotti_JSON.put("prodottiErogati", prodottiErogati_JSON);
 		
 		model = ListProdotti_JSON;
