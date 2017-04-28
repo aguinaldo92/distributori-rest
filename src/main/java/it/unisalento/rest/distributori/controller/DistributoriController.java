@@ -96,7 +96,7 @@ public class DistributoriController implements ModelDriven<Object> {
 
 		}
 
-		ListDistributori_JSON.put("numero elementi", distributoriList.size());
+		ListDistributori_JSON.put("numeroElementi", distributoriList.size());
 		ListDistributori_JSON.put("distributori", distributori_JSON);
 
 		jsonModel = ListDistributori_JSON;
