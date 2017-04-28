@@ -42,7 +42,8 @@ public class Prodotti_erogatiController implements ModelDriven<Object> {
 				prodottoErogato_JSON.put("nome", prodottoErogato.getProdotto().getNome());
 				prodottoErogato_JSON.put("prezzo", prodottoErogato.getProdotto().getPrezzo());
 				prodottoErogato_JSON.put("sconto", prodottoErogato.getProdotto().getScontoUtenti());
-				prodottoErogato_JSON.put("foto", prodottoErogato.getProdotto().getFoto().replaceAll("\\.", "_64sizes."));
+				prodottoErogato_JSON.put("foto64", prodottoErogato.getProdotto().getFoto().replaceAll("\\.", "_64sizes."));
+				prodottoErogato_JSON.put("foto256", prodottoErogato.getProdotto().getFoto().replaceAll("\\.", "_256sizes."));
 				prodottoErogato_JSON.put("produttore", prodottoErogato.getProdotto().getStabilimento().getProduttore().getNome());
 			
 				prodottiErogati_JSON.add(prodottoErogato_JSON);
