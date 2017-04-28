@@ -11,7 +11,6 @@ import it.unisalento.rest.distributori.dao.FeedbackDao;
 import it.unisalento.rest.distributori.dao.PersonaDao;
 import it.unisalento.rest.distributori.dao.ProdottiErogatiDao;
 import it.unisalento.rest.distributori.dao.ProdottoDao;
-import it.unisalento.rest.distributori.dao.ProduttoreDao;
 import it.unisalento.rest.distributori.daoimpl.AcquistaDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.CategoriaDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.CategorieForniteDaoImpl;
@@ -20,7 +19,6 @@ import it.unisalento.rest.distributori.daoimpl.FeedbackDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.PersonaDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.ProdottiErogatiDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.ProdottoDaoImpl;
-import it.unisalento.rest.distributori.daoimpl.ProduttoreDaoImpl;
 
 /**
  * @author aguinaldo
@@ -52,21 +50,6 @@ public class FactoryDao {
 		return new CategoriaDaoImpl();
 	}
 
-//	public FamigliaDao getFamigliaDao(){
-//		//System.out.println("FactoryDao: getFamigliaDao");
-//		return new FamigliaDaoImpl();
-//	}
-
-	public ProduttoreDao getProduttoreDao(){
-		//System.out.println("FactoryDao: getProduttoreDao");
-		return new ProduttoreDaoImpl();
-	}
-//	
-//	public StabilimentoDao getStabilimentoDao(){
-//		//System.out.println("FactoryDao: getStabilimentoDao");
-//		return new StabilimentoDaoImpl();
-//	}
-
 	public DistributoreDao getDistributoreDao(){
 		//System.out.println("FactoryDao: getDistributoreDao");
 		return new DistributoreDaoImpl();
@@ -81,11 +64,6 @@ public class FactoryDao {
 		//System.out.println("FactoryDao: getProdottiErogatiDao");
 		return new ProdottiErogatiDaoImpl();
 	}
-//	
-//	public FamiglieProdottoDao getFamiglieProdottoDao(){
-//		//System.out.println("FactoryDao: getFamiglieProdottoDao");
-//		return new FamiglieProdottoDaoImpl();
-//	}
 	public FeedbackDao getFeedbackDao(){
 		//System.out.println("FactoryDao: getFeedbackDao");
 		return new FeedbackDaoImpl();

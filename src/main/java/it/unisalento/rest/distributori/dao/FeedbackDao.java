@@ -10,6 +10,5 @@ import it.unisalento.rest.distributori.domain.Feedback;
  *
  */
 public interface FeedbackDao extends BaseDao<Feedback>{
-	public Long getNumMessaggiNonLetti();
 
 }

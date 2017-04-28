@@ -19,28 +19,28 @@ import it.unisalento.rest.distributori.domain.ProdottiErogati;
 public class ProdottiErogatiDaoImpl extends BaseDaoImpl<ProdottiErogati> implements ProdottiErogatiDao{
 
 	
-	@SuppressWarnings("unchecked")
-	@Override
-	public ArrayList<ProdottiErogati> getProdottiScarseggiantiByDistributore(Integer idDistributore) {
-		Session session = null;
-		try {
-			// se cambi la quantita minima, cambiala anche nel trigger sul database.
-			Integer quantitaMinima = 5;
-			session = HibernateUtil.getSession();
-			Transaction tx = session.beginTransaction();
-			String hql = "select PE from ProdottiErogati PE inner join PE.prodotto as P where PE.distributore.id = :idDistributore and P.nome != 'vuoto' and PE.quantita <= :quantitaMinima order by PE.quantita asc" ;
-			Query query = session.createQuery(hql);
-			query.setInteger("idDistributore", idDistributore);
-			query.setInteger("quantitaMinima", quantitaMinima);
-			ArrayList<ProdottiErogati> listProdottiErogatiScarseggianti = (ArrayList<ProdottiErogati>) query.list();
-			tx.commit();
-			
-			return listProdottiErogatiScarseggianti;
-			
-		} finally{
-			HibernateUtil.closeSession(session);
-		}
-	}
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public ArrayList<ProdottiErogati> getProdottiScarseggiantiByDistributore(Integer idDistributore) {
+//		Session session = null;
+//		try {
+//			// se cambi la quantita minima, cambiala anche nel trigger sul database.
+//			Integer quantitaMinima = 5;
+//			session = HibernateUtil.getSession();
+//			Transaction tx = session.beginTransaction();
+//			String hql = "select PE from ProdottiErogati PE inner join PE.prodotto as P where PE.distributore.id = :idDistributore and P.nome != 'vuoto' and PE.quantita <= :quantitaMinima order by PE.quantita asc" ;
+//			Query query = session.createQuery(hql);
+//			query.setInteger("idDistributore", idDistributore);
+//			query.setInteger("quantitaMinima", quantitaMinima);
+//			ArrayList<ProdottiErogati> listProdottiErogatiScarseggianti = (ArrayList<ProdottiErogati>) query.list();
+//			tx.commit();
+//			
+//			return listProdottiErogatiScarseggianti;
+//			
+//		} finally{
+//			HibernateUtil.closeSession(session);
+//		}
+//	}
 
 	@Override
 	public ArrayList<ProdottiErogati> getProdottiErogatiByDistributoreSortedByScaffalePosto(Integer idDistributore) {

@@ -16,20 +16,4 @@ import it.unisalento.rest.distributori.domain.Feedback;
  */
 public class FeedbackDaoImpl extends BaseDaoImpl<Feedback> implements FeedbackDao {
 
-	@Override
-	public Long getNumMessaggiNonLetti() {
-		Session session = null;
-		try{
-			session = HibernateUtil.getSession();
-			Transaction tx = session.beginTransaction();
-			Query query = session.createQuery("select count(*) from Feedback as F where F.letto = 0");
-			Long numMessaggiNonLetti = (Long) query.uniqueResult();
-			tx.commit();
-			return numMessaggiNonLetti;
-		} finally{
-			HibernateUtil.closeSession(session);
-		}
-
-	}
-
 }
