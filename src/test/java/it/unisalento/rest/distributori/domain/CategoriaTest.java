@@ -20,7 +20,17 @@ public class CategoriaTest {
 	}
 
 	@Test
+	public void testGetId() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
 	public void testSetId() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testGetNome() throws Exception {
 		throw new RuntimeException("not yet implemented");
 	}
 
@@ -30,7 +40,17 @@ public class CategoriaTest {
 	}
 
 	@Test
+	public void testGetProdottos() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
 	public void testSetProdottos() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testGetCategorieFornites() throws Exception {
 		throw new RuntimeException("not yet implemented");
 	}
 

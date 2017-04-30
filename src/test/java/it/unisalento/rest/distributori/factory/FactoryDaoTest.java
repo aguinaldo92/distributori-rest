@@ -1,52 +1,67 @@
 package it.unisalento.rest.distributori.factory;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
+
+import it.unisalento.rest.distributori.dao.*;
+
 
 public class FactoryDaoTest {
 
+	FactoryDao istance = new FactoryDao();
+	
 	@Test
 	public void testGetIstance() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		assertNotNull(FactoryDao.getIstance());
 	}
 
 	@Test
 	public void testGetPersonaDao() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		PersonaDao dao = istance.getPersonaDao();
+		assertNotNull(dao);
 	}
 
 	@Test
 	public void testGetProdottoDao() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		ProdottoDao dao = istance.getProdottoDao();
+		assertNotNull(dao);
 	}
 
 	@Test
 	public void testGetCategoriaDao() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		CategoriaDao dao = istance.getCategoriaDao();
+		assertNotNull(dao);
 	}
 
 	@Test
 	public void testGetDistributoreDao() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		DistributoreDao dao = istance.getDistributoreDao();
+		assertNotNull(dao);
 	}
 
 	@Test
 	public void testGetCategorieForniteDao() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		CategorieForniteDao dao = istance.getCategorieForniteDao();
+		assertNotNull(dao);
 	}
 
 	@Test
 	public void testGetProdottiErogatiDao() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		ProdottiErogatiDao dao = istance.getProdottiErogatiDao();
+		assertNotNull(dao);
 	}
 
 	@Test
 	public void testGetFeedbackDao() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		FeedbackDao dao = istance.getFeedbackDao();
+		assertNotNull(dao);
 	}
 
 	@Test
 	public void testGetAcquistaDao() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		AcquistaDao dao = istance.getAcquistaDao();
+		assertNotNull(dao);
 	}
 
 }

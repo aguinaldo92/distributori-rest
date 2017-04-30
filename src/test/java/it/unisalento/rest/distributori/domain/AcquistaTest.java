@@ -20,7 +20,17 @@ public class AcquistaTest {
 	}
 
 	@Test
+	public void testGetId() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
 	public void testSetId() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testGetDistributore() throws Exception {
 		throw new RuntimeException("not yet implemented");
 	}
 
@@ -30,7 +40,17 @@ public class AcquistaTest {
 	}
 
 	@Test
+	public void testGetPersona() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
 	public void testSetPersona() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testGetProdotto() throws Exception {
 		throw new RuntimeException("not yet implemented");
 	}
 
@@ -40,12 +60,27 @@ public class AcquistaTest {
 	}
 
 	@Test
+	public void testGetData() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
 	public void testSetData() throws Exception {
 		throw new RuntimeException("not yet implemented");
 	}
 
 	@Test
+	public void testGetQuantita() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
 	public void testSetQuantita() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testGetTotaleSpesa() throws Exception {
 		throw new RuntimeException("not yet implemented");
 	}
 
