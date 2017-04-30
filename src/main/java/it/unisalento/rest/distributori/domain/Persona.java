@@ -28,18 +28,6 @@ public class Persona implements java.io.Serializable {
 		this.ruolo = ruolo;
 	}
 
-	public Persona(String nome, String cognome, String email, String password, int ruolo, Set feedbacks, Set acquistas,
-			Dipendente dipendente) {
-		this.nome = nome;
-		this.cognome = cognome;
-		this.email = email;
-		this.password = password;
-		this.ruolo = ruolo;
-		this.feedbacks = feedbacks;
-		this.acquistas = acquistas;
-		this.dipendente = dipendente;
-	}
-
 	public Integer getId() {
 		return this.id;
 	}
@@ -105,7 +93,7 @@ public class Persona implements java.io.Serializable {
 	}
 
 	public Dipendente getDipendente() {
-		return this.dipendente;
+		return dipendente;
 	}
 
 	public void setDipendente(Dipendente dipendente) {

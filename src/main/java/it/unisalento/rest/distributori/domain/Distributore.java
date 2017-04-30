@@ -36,14 +36,6 @@ public class Distributore implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Dipendente getDipendente() {
-		return this.dipendente;
-	}
-
-	public void setDipendente(Dipendente dipendente) {
-		this.dipendente = dipendente;
-	}
-
 	public BigDecimal getLat() {
 		return this.lat;
 	}
@@ -124,8 +116,16 @@ public class Distributore implements java.io.Serializable {
 		this.prodottiErogatis = prodottiErogatis;
 	}
 
+	public Dipendente getDipendente() {
+		return dipendente;
+	}
+
+	public void setDipendente(Dipendente dipendente) {
+		this.dipendente = dipendente;
+	}
+
 	public Set getManutienes() {
-		return this.manutienes;
+		return manutienes;
 	}
 
 	public void setManutienes(Set manutienes) {
@@ -133,7 +133,7 @@ public class Distributore implements java.io.Serializable {
 	}
 
 	public Set getRifornisces() {
-		return this.rifornisces;
+		return rifornisces;
 	}
 
 	public void setRifornisces(Set rifornisces) {

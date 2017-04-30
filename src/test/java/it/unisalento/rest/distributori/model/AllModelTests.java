@@ -1,0 +1,12 @@
+package it.unisalento.rest.distributori.model;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
+
+@RunWith(Suite.class)
+@SuiteClasses({ AcquistaModelTest.class, ClienteModelTest.class, DistributoreModelTest.class, FCMTokenTest.class,
+		FeedbackModelTest.class, UtenteLocationModelTest.class })
+public class AllModelTests {
+
+}
