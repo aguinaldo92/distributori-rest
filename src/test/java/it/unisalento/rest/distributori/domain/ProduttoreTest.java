@@ -1,37 +1,23 @@
 package it.unisalento.rest.distributori.domain;
 
+import static org.junit.Assert.*;
+
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.Test;
 
 public class ProduttoreTest {
 
 	@Test
-	public void testProduttore() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
 	public void testProduttoreStringStringSet() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Set<Stabilimento> stabs = new HashSet<Stabilimento>();
+		stabs.add(new Stabilimento());
+		stabs.add(new Stabilimento());
+		Produttore produttore = new Produttore("JUnit", "Sede esempio", stabs);
+		assertNotNull(produttore);
+		assertTrue(produttore.getStabilimentos().size()==2);
+		assertEquals("JUnit",produttore.getNome());
 	}
-
-	@Test
-	public void testSetId() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testSetNome() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testSetSede() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testSetStabilimentos() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
+	
 }

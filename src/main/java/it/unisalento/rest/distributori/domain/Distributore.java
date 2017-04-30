@@ -28,24 +28,6 @@ public class Distributore implements java.io.Serializable {
 	public Distributore() {
 	}
 
-	public Distributore(Dipendente dipendente, BigDecimal lat, BigDecimal lon, String indirizzo,
-			String posizioneEdificio, Integer stato, Integer numScaffali, Integer numPosti, Set acquistas,
-			Set categorieFornites, Set prodottiErogatis, Set manutienes, Set rifornisces) {
-		this.dipendente = dipendente;
-		this.lat = lat;
-		this.lon = lon;
-		this.indirizzo = indirizzo;
-		this.posizioneEdificio = posizioneEdificio;
-		this.stato = stato;
-		this.numScaffali = numScaffali;
-		this.numPosti = numPosti;
-		this.acquistas = acquistas;
-		this.categorieFornites = categorieFornites;
-		this.prodottiErogatis = prodottiErogatis;
-		this.manutienes = manutienes;
-		this.rifornisces = rifornisces;
-	}
-
 	public Integer getId() {
 		return this.id;
 	}
