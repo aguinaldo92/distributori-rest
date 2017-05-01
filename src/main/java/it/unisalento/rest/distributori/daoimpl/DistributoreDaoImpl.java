@@ -30,7 +30,7 @@ public class DistributoreDaoImpl extends BaseDaoImpl<Distributore> implements Di
 			
 			String hql = "SELECT D "+
 						"FROM Distributore as D "+
-						"WHERE GeoDistance(:myLat,:myLon,D.lat,D.lon)<:distanza" ;
+						"WHERE GeoDistance(:myLat,:myLon,D.lat,D.lon)<:distanza AND (D.stato=1 OR D.stato=2)" ;
 			
 			Query query = session.createQuery(hql);
 			query.setBigDecimal("myLat", lat);
