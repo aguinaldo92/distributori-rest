@@ -27,13 +27,14 @@ public class DistributoreDaoImpl extends BaseDaoImpl<Distributore> implements Di
 		try{
 			session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
-			String hql = "select  D "+
-					"from Distributore as D join D.categorieFornites as CF join CF.categoria as C "+
-					"where ( D.lat - :lat < :distanza ) and  ( D.lon - :lon < :distanza ) "+
-					"group by D.id" ;
+			
+			String hql = "SELECT D "+
+						"FROM Distributore as D "+
+						"WHERE GeoDistance(:myLat,:myLon,D.lat,D.lon)<:distanza" ;
+			
 			Query query = session.createQuery(hql);
-			query.setBigDecimal("lat", lat);
-			query.setBigDecimal("lon", lon);
+			query.setBigDecimal("myLat", lat);
+			query.setBigDecimal("myLon", lon);
 			query.setInteger("distanza", distanza);
 			@SuppressWarnings("unchecked")
 			ArrayList<Distributore> listDistributori = (ArrayList<Distributore>) query.list();
