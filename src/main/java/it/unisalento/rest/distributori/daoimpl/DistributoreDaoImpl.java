@@ -22,7 +22,7 @@ import it.unisalento.rest.distributori.domain.Distributore;
 public class DistributoreDaoImpl extends BaseDaoImpl<Distributore> implements DistributoreDao {
 
 	@Override
-	public ArrayList<Distributore> getDistributoriVicini(@NotNull BigDecimal lat,@NotNull BigDecimal lon,@NotNull Integer distanza) {
+	public ArrayList<Distributore> getDistributoriViciniOnline(@NotNull BigDecimal lat,@NotNull BigDecimal lon,@NotNull Integer distanza) {
 		Session session = null;
 		try{
 			session = HibernateUtil.getSession();

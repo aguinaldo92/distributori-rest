@@ -11,6 +11,8 @@ import it.unisalento.rest.distributori.dao.FeedbackDao;
 import it.unisalento.rest.distributori.dao.PersonaDao;
 import it.unisalento.rest.distributori.dao.ProdottiErogatiDao;
 import it.unisalento.rest.distributori.dao.ProdottoDao;
+import it.unisalento.rest.distributori.dao.ProduttoreDao;
+import it.unisalento.rest.distributori.dao.StabilimentoDao;
 import it.unisalento.rest.distributori.daoimpl.AcquistaDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.CategoriaDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.CategorieForniteDaoImpl;
@@ -19,6 +21,8 @@ import it.unisalento.rest.distributori.daoimpl.FeedbackDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.PersonaDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.ProdottiErogatiDaoImpl;
 import it.unisalento.rest.distributori.daoimpl.ProdottoDaoImpl;
+import it.unisalento.rest.distributori.daoimpl.ProduttoreDaoImpl;
+import it.unisalento.rest.distributori.daoimpl.StabilimentoDaoImpl;
 
 /**
  * @author aguinaldo
@@ -71,5 +75,13 @@ public class FactoryDao {
 	public AcquistaDao getAcquistaDao(){
 		//System.out.println("FactoryDao: getAcquistaDao");
 		return new AcquistaDaoImpl();
+	}
+	public StabilimentoDao getStabilimentoDao(){
+		//System.out.println("FactoryDao: getStabilimentoDao");
+		return new StabilimentoDaoImpl();
+	}
+	public ProduttoreDao getProduttoreDao(){
+		//System.out.println("FactoryDao: getProduttoreDao");
+		return new ProduttoreDaoImpl();
 	}
 }

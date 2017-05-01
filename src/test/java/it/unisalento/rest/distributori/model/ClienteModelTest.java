@@ -16,8 +16,8 @@ public class ClienteModelTest {
 
 	@Test
 	public void testSetPassword() throws Exception {
-		clientest.setEmail("JUnit@junit.it");
-		assertEquals("JUnit@junit.it",clientest.getEmail());
+		clientest.setPassword("JUnit");
+		assertEquals("JUnit",clientest.getPassword());
 	}
 
 	@Test

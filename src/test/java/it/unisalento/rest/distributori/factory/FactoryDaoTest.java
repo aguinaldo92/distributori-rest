@@ -64,4 +64,10 @@ public class FactoryDaoTest {
 		assertNotNull(dao);
 	}
 
+	@Test
+	public void testGetStabilimentoDao() throws Exception {
+		StabilimentoDao dao = istance.getStabilimentoDao();
+		assertNotNull(dao);
+	}
+
 }
