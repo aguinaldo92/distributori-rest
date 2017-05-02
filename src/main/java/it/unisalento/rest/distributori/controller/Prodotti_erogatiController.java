@@ -34,6 +34,7 @@ public class Prodotti_erogatiController implements ModelDriven<Object> {
 			prodottoErogato = iterator.next();
 			prodottoErogato_JSON.clear();
 			if (prodottoErogato.getProdotto().getNome().compareTo("vuoto") != 0){
+				prodottoErogato_JSON.put("idDistributore", idDistributore);
 				prodottoErogato_JSON.put("idProdottoErogato", prodottoErogato.getId());
 				prodottoErogato_JSON.put("scaffale", prodottoErogato.getScaffale());
 				prodottoErogato_JSON.put("posto", prodottoErogato.getPosto());
