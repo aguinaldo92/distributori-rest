@@ -1,22 +1,31 @@
 package it.unisalento.rest.distributori.model;
 
+import static org.junit.Assert.*;
+
+import java.math.BigDecimal;
+
 import org.junit.Test;
 
 public class UtenteLocationModelTest {
+	
+	UtenteLocationModel loctest = new UtenteLocationModel();
 
 	@Test
 	public void testSetLat() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		loctest.setLat(BigDecimal.valueOf(9));
+		assertTrue(loctest.getLat().equals(BigDecimal.valueOf(9)));
 	}
 
 	@Test
 	public void testSetLon() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		loctest.setLon(BigDecimal.valueOf(9));
+		assertTrue(loctest.getLon().equals(BigDecimal.valueOf(9)));
 	}
 
 	@Test
 	public void testSetDistanza() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		loctest.setDistanza(80);
+		assertTrue(loctest.getDistanza()==80);
 	}
 
 }

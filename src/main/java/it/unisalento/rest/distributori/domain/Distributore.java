@@ -28,38 +28,12 @@ public class Distributore implements java.io.Serializable {
 	public Distributore() {
 	}
 
-	public Distributore(Dipendente dipendente, BigDecimal lat, BigDecimal lon, String indirizzo,
-			String posizioneEdificio, Integer stato, Integer numScaffali, Integer numPosti, Set acquistas,
-			Set categorieFornites, Set prodottiErogatis, Set manutienes, Set rifornisces) {
-		this.dipendente = dipendente;
-		this.lat = lat;
-		this.lon = lon;
-		this.indirizzo = indirizzo;
-		this.posizioneEdificio = posizioneEdificio;
-		this.stato = stato;
-		this.numScaffali = numScaffali;
-		this.numPosti = numPosti;
-		this.acquistas = acquistas;
-		this.categorieFornites = categorieFornites;
-		this.prodottiErogatis = prodottiErogatis;
-		this.manutienes = manutienes;
-		this.rifornisces = rifornisces;
-	}
-
 	public Integer getId() {
 		return this.id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public Dipendente getDipendente() {
-		return this.dipendente;
-	}
-
-	public void setDipendente(Dipendente dipendente) {
-		this.dipendente = dipendente;
 	}
 
 	public BigDecimal getLat() {
@@ -142,8 +116,16 @@ public class Distributore implements java.io.Serializable {
 		this.prodottiErogatis = prodottiErogatis;
 	}
 
+	public Dipendente getDipendente() {
+		return dipendente;
+	}
+
+	public void setDipendente(Dipendente dipendente) {
+		this.dipendente = dipendente;
+	}
+
 	public Set getManutienes() {
-		return this.manutienes;
+		return manutienes;
 	}
 
 	public void setManutienes(Set manutienes) {
@@ -151,7 +133,7 @@ public class Distributore implements java.io.Serializable {
 	}
 
 	public Set getRifornisces() {
-		return this.rifornisces;
+		return rifornisces;
 	}
 
 	public void setRifornisces(Set rifornisces) {

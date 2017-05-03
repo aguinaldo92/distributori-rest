@@ -3,7 +3,6 @@
  */
 package it.unisalento.rest.distributori.controller;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -43,7 +42,7 @@ public class DistributoriController implements ModelDriven<Object> {
 		JSONObject prodottoErogato_JSON = new JSONObject();
 		JSONArray prodottiErogati_JSON = new JSONArray();
 		
-		distributoriList =  FactoryDao.getIstance().getDistributoreDao().getDistributoriVicini(model.getLat(), model.getLon(), model.getDistanza());
+		distributoriList =  FactoryDao.getIstance().getDistributoreDao().getDistributoriViciniOnline(model.getLat(), model.getLon(), model.getDistanza());
 
 		for (int i=0; i<distributoriList.size(); i++) {
 			categorieFornite_JSON.clear();			
