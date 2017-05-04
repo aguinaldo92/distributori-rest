@@ -48,6 +48,8 @@ public class PersonaDaoImplTest {
 		
 		boolean mailexists = dao.emailExists("sato89@hotmail.it");
 		assertTrue(mailexists);
+		mailexists = dao.emailExists("test@notexist.junit");
+		assertFalse(mailexists);
 	}
 	@Test
 	public void testCRUD() throws Exception {
