@@ -1,5 +1,5 @@
 package it.unisalento.rest.distributori.domain;
-// Generated 4-mag-2017 23.58.49 by Hibernate Tools 4.3.1.Final
+// Generated 4-mag-2017 23.58.07 by Hibernate Tools 4.3.1.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -24,6 +24,22 @@ public class Distributore implements java.io.Serializable {
 	private Set prodottiErogatis = new HashSet(0);
 
 	public Distributore() {
+	}
+
+	public Distributore(BigDecimal lat, BigDecimal lon, String indirizzo, String posizioneEdificio, Integer stato,
+			Integer numScaffali, Integer numPosti, Integer dipendentePersonaId, Set acquistas, Set categorieFornites,
+			Set prodottiErogatis) {
+		this.lat = lat;
+		this.lon = lon;
+		this.indirizzo = indirizzo;
+		this.posizioneEdificio = posizioneEdificio;
+		this.stato = stato;
+		this.numScaffali = numScaffali;
+		this.numPosti = numPosti;
+		this.dipendentePersonaId = dipendentePersonaId;
+		this.acquistas = acquistas;
+		this.categorieFornites = categorieFornites;
+		this.prodottiErogatis = prodottiErogatis;
 	}
 
 	public Integer getId() {

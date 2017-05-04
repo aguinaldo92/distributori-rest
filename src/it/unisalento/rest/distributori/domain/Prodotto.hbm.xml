@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 4-mag-2017 23.58.49 by Hibernate Tools 4.3.1.Final -->
+<!-- Generated 4-mag-2017 23.58.08 by Hibernate Tools 4.3.1.Final -->
 <hibernate-mapping>
     <class name="it.unisalento.rest.distributori.domain.Prodotto" table="prodotto" catalog="distributoridb" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="categoria" class="it.unisalento.rest.distributori.domain.Categoria" fetch="select" lazy="false">
+        <many-to-one name="categoria" class="it.unisalento.rest.distributori.domain.Categoria" fetch="select">
             <column name="Categoria_ID" not-null="true" />
         </many-to-one>
-        <many-to-one name="stabilimento" class="it.unisalento.rest.distributori.domain.Stabilimento" fetch="select" lazy="false">
+        <many-to-one name="stabilimento" class="it.unisalento.rest.distributori.domain.Stabilimento" fetch="select">
             <column name="Stabilimento_ID" not-null="true" />
         </many-to-one>
         <property name="nome" type="string">
@@ -35,7 +35,7 @@
         <property name="ingredienti" type="string">
             <column name="Ingredienti" length="16777215" />
         </property>
-        <set name="famiglieProdottos" table="famiglie_prodotto" inverse="true" lazy="false" fetch="select">
+        <set name="famiglieProdottos" table="famiglie_prodotto" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Prodotto_ID" not-null="true" />
             </key>

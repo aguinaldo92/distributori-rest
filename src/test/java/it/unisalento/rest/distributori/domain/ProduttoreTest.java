@@ -8,7 +8,7 @@ import java.util.Set;
 import org.junit.Test;
 
 public class ProduttoreTest {
-	
+
 	Produttore prodtest = new Produttore();
 
 	@Test
@@ -47,5 +47,4 @@ public class ProduttoreTest {
 		prodtest.setStabilimentos(stabs);
 		assertTrue(prodtest.getStabilimentos().size()==1);
 	}
-	
 }

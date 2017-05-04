@@ -22,9 +22,6 @@
         <mapping resource="it/unisalento/rest/distributori/domain/Distributore.hbm.xml" />
         <mapping resource="it/unisalento/rest/distributori/domain/Famiglia.hbm.xml" />
         <mapping resource="it/unisalento/rest/distributori/domain/Prodotto.hbm.xml" />
-        <mapping resource="it/unisalento/rest/distributori/domain/Dipendente.hbm.xml" />
-        <mapping resource="it/unisalento/rest/distributori/domain/Rifornisce.hbm.xml" />
-        <mapping resource="it/unisalento/rest/distributori/domain/Manutiene.hbm.xml" />
         <mapping resource="it/unisalento/rest/distributori/domain/Stabilimento.hbm.xml" />
         <mapping resource="it/unisalento/rest/distributori/domain/Acquista.hbm.xml" />
     </session-factory>

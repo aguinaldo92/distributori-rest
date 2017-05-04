@@ -1,5 +1,5 @@
 package it.unisalento.rest.distributori.domain;
-// Generated 4-mag-2017 23.58.49 by Hibernate Tools 4.3.1.Final
+// Generated 4-mag-2017 23.58.07 by Hibernate Tools 4.3.1.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,6 +25,17 @@ public class Persona implements java.io.Serializable {
 		this.email = email;
 		this.password = password;
 		this.ruolo = ruolo;
+	}
+
+	public Persona(String nome, String cognome, String email, String password, int ruolo, Set feedbacks,
+			Set acquistas) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+		this.password = password;
+		this.ruolo = ruolo;
+		this.feedbacks = feedbacks;
+		this.acquistas = acquistas;
 	}
 
 	public Integer getId() {

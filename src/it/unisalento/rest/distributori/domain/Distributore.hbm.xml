@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 4-mag-2017 23.58.49 by Hibernate Tools 4.3.1.Final -->
+<!-- Generated 4-mag-2017 23.58.08 by Hibernate Tools 4.3.1.Final -->
 <hibernate-mapping>
     <class name="it.unisalento.rest.distributori.domain.Distributore" table="distributore" catalog="distributoridb" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
@@ -38,13 +38,13 @@
             </key>
             <one-to-many class="it.unisalento.rest.distributori.domain.Acquista" />
         </set>
-        <set name="categorieFornites" table="categorie_fornite" inverse="true" lazy="false" fetch="select">
+        <set name="categorieFornites" table="categorie_fornite" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Distributore_ID" not-null="true" />
             </key>
             <one-to-many class="it.unisalento.rest.distributori.domain.CategorieFornite" />
         </set>
-        <set name="prodottiErogatis" table="prodotti_erogati" inverse="true" lazy="false" fetch="select">
+        <set name="prodottiErogatis" table="prodotti_erogati" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Distributore_ID" not-null="true" />
             </key>

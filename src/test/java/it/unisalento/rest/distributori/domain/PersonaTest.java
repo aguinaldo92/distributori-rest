@@ -9,6 +9,7 @@ import org.junit.Test;
 
 public class PersonaTest {
 
+
 	Persona personatest = new Persona();
 	
 	@Test
@@ -79,5 +80,4 @@ public class PersonaTest {
 		personatest.setAcquistas(acquisti);
 		assertTrue(personatest.getAcquistas().size()==2);
 	}
-
 }
