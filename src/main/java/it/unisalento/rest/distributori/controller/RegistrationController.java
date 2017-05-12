@@ -1,7 +1,10 @@
 package it.unisalento.rest.distributori.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 import java.util.Date;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.rest.DefaultHttpHeaders;
@@ -9,6 +12,7 @@ import org.apache.struts2.rest.HttpHeaders;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTCreationException;
 import com.opensymphony.xwork2.ModelDriven;
 
 import it.unisalento.rest.distributori.domain.Persona;
@@ -73,6 +77,6 @@ public class RegistrationController implements ModelDriven<Object> {
 		return model;
 	}
 
-	private 
+	 
 
 }
