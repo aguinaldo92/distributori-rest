@@ -30,6 +30,7 @@ public class RegistrationController implements ModelDriven<Object> {
 	private String token;
 	final int dim_pw = 6;
 	final int days = 5;
+	final int ruoloUtenteMobile = 2;
 
 
 	public HttpHeaders create(){
@@ -37,6 +38,7 @@ public class RegistrationController implements ModelDriven<Object> {
 
 			if(!FactoryDao.getIstance().getPersonaDao().emailExists(model.getEmail())){
 				Persona persona = new Persona();
+				persona.setRuolo(ruoloUtenteMobile);
 				persona.setEmail(model.getEmail());
 				
 				GeneraPwd pw_generator = new GeneraPwd(dim_pw);//generatore di password lunghe 6 caratteri
@@ -63,9 +65,9 @@ public class RegistrationController implements ModelDriven<Object> {
 		} catch (Exception e) {
 			result = ResultDispatcher.jsonError(e.getLocalizedMessage());
 		}
-		finally {
+		
 			return new DefaultHttpHeaders("create").disableCaching();
-		}
+		
 
 
 	}

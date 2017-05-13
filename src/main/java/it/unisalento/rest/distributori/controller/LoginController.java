@@ -57,9 +57,9 @@ public class LoginController implements ModelDriven<Object> {
 			result.put("result", false);
 			result.put("message", e.getLocalizedMessage());
 		}
-		finally {
+		
 			return new DefaultHttpHeaders("create").disableCaching();
-		}
+		
 
 	}
 
