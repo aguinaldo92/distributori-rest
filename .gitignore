@@ -6,3 +6,6 @@
 /META-INF/
 /build.properties
 /.clover/
+/.apt_generated/
+/.factorypath
+.settings
