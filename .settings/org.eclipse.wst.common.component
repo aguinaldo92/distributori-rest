@@ -4,10 +4,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-<<<<<<< HEAD
-=======
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
->>>>>>> refs/remotes/origin/registrationController
         <property name="context-root" value="distributori-rest"/>
         <property name="java-output-path" value="/distributori-rest/target/classes"/>
     </wb-module>
