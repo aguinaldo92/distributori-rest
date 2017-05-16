@@ -16,6 +16,8 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import it.unisalento.rest.distributori.factory.FactoryDao;
 import it.unisalento.rest.distributori.model.ClienteModel;
+import it.unisalento.rest.distributori.util.ResultDispatcher;
+import it.unisalento.rest.distributori.util.TokenUtils;
 import net.sf.json.JSONObject;
 
 public class LoginController implements ModelDriven<Object> {
@@ -24,38 +26,29 @@ public class LoginController implements ModelDriven<Object> {
 	private ClienteModel model = new ClienteModel();
 	private JSONObject result;
 	private String token;
+	final int days = 5;
 
 	public HttpHeaders create(){
 		try{
 			if( FactoryDao.getIstance().getPersonaDao().getPersonaByCredentials(model.getEmail(),model.getPassword()) != null){
-				Calendar calendar = Calendar.getInstance();
-				calendar.setTime(new Date()); // Now use today date.
-				calendar.add(Calendar.DATE, 5);
-				Algorithm algorithm = Algorithm.HMAC256("secret"); // scegliere un secret affidabile
-				token = JWT.create()
-						.withIssuer("distributori")
-						.withExpiresAt(calendar.getTime()) // issuer è la compagnia
-						.sign(algorithm);
+				token = TokenUtils.tokenBuilder(days);
 				HttpServletResponse response = ServletActionContext.getResponse();
 				response.addHeader("Authorization: Bearer ", token);
 				result = new JSONObject();
 				result.put("result", true);
+				result.put("token", token);
 				
-			} 
+			} else {
+				result = ResultDispatcher.jsonError("Credenziali errate");
+			}
 		} catch (UnsupportedEncodingException exception){
 			//UTF-8 encoding not supported
-			result = new JSONObject();
-			result.put("result", false);
-			result.put("message", "utf-8 encoding not supported");
+			result = ResultDispatcher.jsonErrorUtf8Encoding();
 		} catch (JWTCreationException exception){
 			//Invalid Signing configuration / Couldn't convert Claims.
-			result = new JSONObject();
-			result.put("result", false);
-			result.put("message", "Invalid Signing configuration / Couldn't convert Claims");
+			result = ResultDispatcher.jsonErrorJWTCreation();
 		} catch (Exception e) {
-			result = new JSONObject();
-			result.put("result", false);
-			result.put("message", e.getLocalizedMessage());
+			result = ResultDispatcher.jsonError(e.getMessage());
 		}
 		
 			return new DefaultHttpHeaders("create").disableCaching();

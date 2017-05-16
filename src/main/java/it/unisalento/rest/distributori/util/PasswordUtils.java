@@ -3,8 +3,7 @@ package it.unisalento.rest.distributori.util;
 import java.security.MessageDigest;
 
 public abstract class PasswordUtils {
-
-
+	
 	public static String getSha256(String value) {
 		try{
 			MessageDigest md = MessageDigest.getInstance("SHA-256");

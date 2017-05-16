@@ -1,8 +1,6 @@
 package it.unisalento.rest.distributori.controller;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Calendar;
-import java.util.Date;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,15 +8,12 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.rest.DefaultHttpHeaders;
 import org.apache.struts2.rest.HttpHeaders;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.opensymphony.xwork2.ModelDriven;
 
 import it.unisalento.rest.distributori.domain.Persona;
 import it.unisalento.rest.distributori.factory.FactoryDao;
 import it.unisalento.rest.distributori.model.ClienteModel;
-import it.unisalento.rest.distributori.util.GeneraPwd;
 import it.unisalento.rest.distributori.util.PasswordUtils;
 import it.unisalento.rest.distributori.util.ResultDispatcher;
 import it.unisalento.rest.distributori.util.TokenUtils;
@@ -40,10 +35,7 @@ public class RegistrationController implements ModelDriven<Object> {
 				Persona persona = new Persona();
 				persona.setRuolo(ruoloUtenteMobile);
 				persona.setEmail(model.getEmail());
-				
-				GeneraPwd pw_generator = new GeneraPwd(dim_pw);//generatore di password lunghe 6 caratteri
-				String passwordInChiaro = pw_generator.getPWD();
-				String hashedPassword = PasswordUtils.getSha256(passwordInChiaro);
+				String hashedPassword = PasswordUtils.getSha256(model.getPassword());
 				persona.setPassword(hashedPassword);
 				FactoryDao.getIstance().getPersonaDao().set(persona);
 				token = TokenUtils.tokenBuilder(days);
@@ -51,7 +43,7 @@ public class RegistrationController implements ModelDriven<Object> {
 				response.addHeader("Authorization: Bearer ", token);
 				result = new JSONObject();
 				result.put("result", true);
-
+				result.put("token", token);
 
 			} else {
 				result = ResultDispatcher.jsonError("Indirizzo email già in uso, sceglierne un altro.");
