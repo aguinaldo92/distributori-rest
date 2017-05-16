@@ -8,8 +8,7 @@ import java.util.Date;
 import org.junit.Test;
 
 public class AcquistaTest {
-
-	Acquista acqtest = new Acquista();
+Acquista acqtest = new Acquista();
 	
 	@Test
 	public void testAcquista() throws Exception {

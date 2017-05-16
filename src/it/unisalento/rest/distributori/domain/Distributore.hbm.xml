@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4-mag-2017 23.58.08 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="it.unisalento.rest.distributori.domain.Distributore" table="distributore" catalog="distributoridb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="lat" type="big_decimal">
+            <column name="Lat" precision="12" scale="9" />
+        </property>
+        <property name="lon" type="big_decimal">
+            <column name="Lon" precision="12" scale="9" />
+        </property>
+        <property name="indirizzo" type="string">
+            <column name="Indirizzo" />
+        </property>
+        <property name="posizioneEdificio" type="string">
+            <column name="Posizione_edificio" />
+        </property>
+        <property name="stato" type="java.lang.Integer">
+            <column name="Stato" />
+        </property>
+        <property name="numScaffali" type="java.lang.Integer">
+            <column name="Num_scaffali" />
+        </property>
+        <property name="numPosti" type="java.lang.Integer">
+            <column name="Num_posti" />
+        </property>
+        <property name="dipendentePersonaId" type="java.lang.Integer">
+            <column name="Dipendente_Persona_ID" />
+        </property>
+        <set name="acquistas" table="acquista" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Distributore_ID" />
+            </key>
+            <one-to-many class="it.unisalento.rest.distributori.domain.Acquista" />
+        </set>
+        <set name="categorieFornites" table="categorie_fornite" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Distributore_ID" not-null="true" />
+            </key>
+            <one-to-many class="it.unisalento.rest.distributori.domain.CategorieFornite" />
+        </set>
+        <set name="prodottiErogatis" table="prodotti_erogati" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Distributore_ID" not-null="true" />
+            </key>
+            <one-to-many class="it.unisalento.rest.distributori.domain.ProdottiErogati" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -11,5 +11,4 @@ public class ProdottoTest {
 		Prodotto prodotto = new Prodotto();
 		assertNotNull(prodotto);
 	}
-
 }

@@ -1,5 +1,5 @@
 package it.unisalento.rest.distributori.domain;
-// Generated 13-apr-2017 14.28.49 by Hibernate Tools 4.3.1.Final
+// Generated 4-mag-2017 23.58.49 by Hibernate Tools 4.3.1.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -11,7 +11,6 @@ import java.util.Set;
 public class Distributore implements java.io.Serializable {
 
 	private Integer id;
-	private Dipendente dipendente;
 	private BigDecimal lat;
 	private BigDecimal lon;
 	private String indirizzo;
@@ -19,11 +18,10 @@ public class Distributore implements java.io.Serializable {
 	private Integer stato;
 	private Integer numScaffali;
 	private Integer numPosti;
+	private Integer dipendentePersonaId;
 	private Set acquistas = new HashSet(0);
 	private Set categorieFornites = new HashSet(0);
 	private Set prodottiErogatis = new HashSet(0);
-	private Set manutienes = new HashSet(0);
-	private Set rifornisces = new HashSet(0);
 
 	public Distributore() {
 	}
@@ -92,6 +90,14 @@ public class Distributore implements java.io.Serializable {
 		this.numPosti = numPosti;
 	}
 
+	public Integer getDipendentePersonaId() {
+		return this.dipendentePersonaId;
+	}
+
+	public void setDipendentePersonaId(Integer dipendentePersonaId) {
+		this.dipendentePersonaId = dipendentePersonaId;
+	}
+
 	public Set getAcquistas() {
 		return this.acquistas;
 	}
@@ -114,30 +120,6 @@ public class Distributore implements java.io.Serializable {
 
 	public void setProdottiErogatis(Set prodottiErogatis) {
 		this.prodottiErogatis = prodottiErogatis;
-	}
-
-	public Dipendente getDipendente() {
-		return dipendente;
-	}
-
-	public void setDipendente(Dipendente dipendente) {
-		this.dipendente = dipendente;
-	}
-
-	public Set getManutienes() {
-		return manutienes;
-	}
-
-	public void setManutienes(Set manutienes) {
-		this.manutienes = manutienes;
-	}
-
-	public Set getRifornisces() {
-		return rifornisces;
-	}
-
-	public void setRifornisces(Set rifornisces) {
-		this.rifornisces = rifornisces;
 	}
 
 }
