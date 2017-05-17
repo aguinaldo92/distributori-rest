@@ -11,7 +11,7 @@ import it.unisalento.rest.distributori.factory.FactoryDao;
 
 public class CategoriaTest {
 
-	Categoria categtest = new Categoria();
+Categoria categtest = new Categoria();
 	
 	@Test
 	public void testCategoria() throws Exception {
@@ -68,5 +68,4 @@ public class CategoriaTest {
 		categtest.setCategorieFornites(categ_fornite);
 		assertTrue(categtest.getCategorieFornites().size()==2);
 	}
-
 }

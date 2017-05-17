@@ -40,5 +40,4 @@ public class FamiglieProdottoTest {
 		fams.setProdotto(new Prodotto());
 		assertNotNull(fams.getProdotto());
 	}
-
 }
