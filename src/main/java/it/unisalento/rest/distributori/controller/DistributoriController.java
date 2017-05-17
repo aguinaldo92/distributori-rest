@@ -52,6 +52,7 @@ public class DistributoriController implements ModelDriven<Object> {
 
 			//carico il distributore nel JSON
 			distributore_JSON.clear();
+			distributore_JSON.put("idDistributore", distributore.getId());
 			distributore_JSON.put("lat", distributore.getLat());
 			distributore_JSON.put("lon", distributore.getLon());
 			distributore_JSON.put("posizioneEdificio", distributore.getPosizioneEdificio());
