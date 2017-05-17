@@ -93,5 +93,4 @@ public class DistributoreTest {
 		assertTrue(distrib_test.getProdottiErogatis().size()==2);
 	}
 
-
 }

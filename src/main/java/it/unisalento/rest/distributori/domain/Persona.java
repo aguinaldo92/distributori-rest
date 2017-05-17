@@ -1,5 +1,5 @@
 package it.unisalento.rest.distributori.domain;
-// Generated 4-mag-2017 23.58.49 by Hibernate Tools 4.3.1.Final
+// Generated 13-apr-2017 14.28.49 by Hibernate Tools 4.3.1.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +17,7 @@ public class Persona implements java.io.Serializable {
 	private int ruolo;
 	private Set feedbacks = new HashSet(0);
 	private Set acquistas = new HashSet(0);
+	private Dipendente dipendente;
 
 	public Persona() {
 	}
@@ -89,6 +90,14 @@ public class Persona implements java.io.Serializable {
 
 	public void setAcquistas(Set acquistas) {
 		this.acquistas = acquistas;
+	}
+
+	public Dipendente getDipendente() {
+		return dipendente;
+	}
+
+	public void setDipendente(Dipendente dipendente) {
+		this.dipendente = dipendente;
 	}
 
 }
