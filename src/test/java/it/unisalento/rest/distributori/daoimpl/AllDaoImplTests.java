@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ AcquistaDaoImplTest.class, CategoriaDaoImplTest.class, CategorieForniteDaoImplTest.class,
-		DistributoreDaoImplTest.class, FeedbackDaoImplTest.class, HibernateUtilTest.class, PersonaDaoImplTest.class,
+		DistributoreDaoImplTest.class, FeedbackDaoImplTest.class, PersonaDaoImplTest.class,
 		ProdottiErogatiDaoImplTest.class, ProdottoDaoImplTest.class })
 public class AllDaoImplTests {
 
