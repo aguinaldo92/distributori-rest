@@ -21,13 +21,14 @@ public class HibernateUtil {
 	 */
 
 	static {
+		try{
 		logger = LogManager.getLogger(HibernateUtil.class.getName());
 		Configuration configuration = new Configuration();
 		configuration.configure();
 		StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
 		serviceRegistryBuilder.applySettings(configuration.getProperties());
 		serviceRegistry = serviceRegistryBuilder.build();
-		try{
+		
 			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		} catch (Throwable e){
 			logger.error("il DB non è raggiungibile, non è possibile generare la sessionFactory", e);

@@ -4,12 +4,14 @@
 package it.unisalento.rest.distributori.daoimpl;
 
 import java.util.ArrayList;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import it.unisalento.rest.distributori.dao.ProdottiErogatiDao;
 import it.unisalento.rest.distributori.domain.ProdottiErogati;
+import it.unisalento.rest.distributori.util.HibernateUtil;
 
 /**
  * @author aguinaldo

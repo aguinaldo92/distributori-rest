@@ -1,6 +1,7 @@
 package it.unisalento.rest.distributori.daoimpl;
 
 import it.unisalento.rest.distributori.dao.BaseDao;
+import it.unisalento.rest.distributori.util.HibernateUtil;
 
 import java.util.List;
 

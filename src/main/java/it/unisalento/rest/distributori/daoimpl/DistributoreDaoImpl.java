@@ -14,6 +14,7 @@ import com.sun.istack.internal.NotNull;
 
 import it.unisalento.rest.distributori.dao.DistributoreDao;
 import it.unisalento.rest.distributori.domain.Distributore;
+import it.unisalento.rest.distributori.util.HibernateUtil;
 
 /**
  * @author aguinaldo
