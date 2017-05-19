@@ -106,11 +106,12 @@ public class PersonaDaoImplTest {
 		String nome2;
 		boolean error = false;
 		for(int i=1; i<persone.size() && !error; i++){
+			
 			nome1 = persone.get(i-1).getNome();
 			nome2 = persone.get(i).getNome();
-			if(nome1.compareToIgnoreCase(nome2)>0)
+			if(nome1 != null && nome2 != null && nome1.compareToIgnoreCase(nome2)>0)
 				error=true;
 		}
-		assertTrue(!error);
+		assertFalse(error);
 	}
 }
