@@ -35,7 +35,7 @@ public class RegistrationController implements ModelDriven<Object> {
 				Persona persona = new Persona();
 				persona.setRuolo(ruoloUtenteMobile);
 				persona.setEmail(model.getEmail());
-				String hashedPassword = PasswordUtils.getSha256(model.getPassword());
+				String hashedPassword = model.getPassword();
 				persona.setPassword(hashedPassword);
 				FactoryDao.getIstance().getPersonaDao().set(persona);
 				token = TokenUtils.tokenBuilder(days);

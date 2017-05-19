@@ -38,13 +38,13 @@
             </key>
             <one-to-many class="it.unisalento.rest.distributori.domain.Acquista" />
         </set>
-        <set name="categorieFornites" table="categorie_fornite" inverse="true" lazy="true" fetch="select">
+        <set name="categorieFornites" table="categorie_fornite" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="Distributore_ID" not-null="true" />
             </key>
             <one-to-many class="it.unisalento.rest.distributori.domain.CategorieFornite" />
         </set>
-        <set name="prodottiErogatis" table="prodotti_erogati" inverse="true" lazy="true" fetch="select">
+        <set name="prodottiErogatis" table="prodotti_erogati" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="Distributore_ID" not-null="true" />
             </key>
