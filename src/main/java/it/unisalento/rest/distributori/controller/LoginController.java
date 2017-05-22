@@ -11,6 +11,7 @@ import org.apache.struts2.rest.HttpHeaders;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.opensymphony.xwork2.ModelDriven;
 
+import it.unisalento.rest.distributori.domain.Persona;
 import it.unisalento.rest.distributori.factory.FactoryDao;
 import it.unisalento.rest.distributori.model.ClienteModel;
 import it.unisalento.rest.distributori.util.ResultDispatcher;
@@ -27,13 +28,15 @@ public class LoginController implements ModelDriven<Object> {
 
 	public HttpHeaders create(){
 		try{
-			if( FactoryDao.getIstance().getPersonaDao().getPersonaByCredentials(model.getEmail(),model.getPassword()) != null){
+			Persona utente = FactoryDao.getIstance().getPersonaDao().getPersonaByCredentials(model.getEmail(),model.getPassword());
+			if( utente != null){
 				token = TokenUtils.tokenBuilder(days);
 				HttpServletResponse response = ServletActionContext.getResponse();
 				response.addHeader("Authorization: Bearer ", token);
 				result = new JSONObject();
 				result.put("result", true);
 				result.put("token", token);
+				result.put("idUtente",utente.getId());
 				
 			} else {
 				result = ResultDispatcher.jsonError("Credenziali errate");

@@ -27,16 +27,7 @@ public class Persona implements java.io.Serializable {
 		this.ruolo = ruolo;
 	}
 
-	public Persona(String nome, String cognome, String email, String password, int ruolo, Set feedbacks,
-			Set acquistas) {
-		this.nome = nome;
-		this.cognome = cognome;
-		this.email = email;
-		this.password = password;
-		this.ruolo = ruolo;
-		this.feedbacks = feedbacks;
-		this.acquistas = acquistas;
-	}
+
 
 	public Integer getId() {
 		return this.id;
