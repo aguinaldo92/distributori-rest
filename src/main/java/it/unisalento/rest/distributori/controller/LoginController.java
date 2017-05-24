@@ -35,7 +35,6 @@ public class LoginController implements ModelDriven<Object> {
 				response.addHeader("Authorization: Bearer ", token);
 				result = new JSONObject();
 				result.put("result", true);
-				result.put("token", token);
 				result.put("idUtente",utente.getId());
 				
 			} else {

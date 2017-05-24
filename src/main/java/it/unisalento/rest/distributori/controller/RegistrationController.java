@@ -43,7 +43,6 @@ public class RegistrationController implements ModelDriven<Object> {
 				response.addHeader("Authorization: Bearer ", token);
 				result = new JSONObject();
 				result.put("result", true);
-				result.put("token", token);
 
 			} else {
 				result = ResultDispatcher.jsonError("Indirizzo email già in uso, sceglierne un altro.");
