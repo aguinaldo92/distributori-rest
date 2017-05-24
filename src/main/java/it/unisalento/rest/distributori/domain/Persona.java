@@ -1,5 +1,5 @@
 package it.unisalento.rest.distributori.domain;
-// Generated 4-mag-2017 23.58.07 by Hibernate Tools 4.3.1.Final
+// Generated 24-mag-2017 22.56.53 by Hibernate Tools 4.3.1.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +16,7 @@ public class Persona implements java.io.Serializable {
 	private String password;
 	private int ruolo;
 	private Set feedbacks = new HashSet(0);
+	private Set sottoscrizioniDistributoris = new HashSet(0);
 	private Set acquistas = new HashSet(0);
 
 	public Persona() {
@@ -27,7 +28,17 @@ public class Persona implements java.io.Serializable {
 		this.ruolo = ruolo;
 	}
 
-
+	public Persona(String nome, String cognome, String email, String password, int ruolo, Set feedbacks,
+			Set sottoscrizioniDistributoris, Set acquistas) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+		this.password = password;
+		this.ruolo = ruolo;
+		this.feedbacks = feedbacks;
+		this.sottoscrizioniDistributoris = sottoscrizioniDistributoris;
+		this.acquistas = acquistas;
+	}
 
 	public Integer getId() {
 		return this.id;
@@ -83,6 +94,14 @@ public class Persona implements java.io.Serializable {
 
 	public void setFeedbacks(Set feedbacks) {
 		this.feedbacks = feedbacks;
+	}
+
+	public Set getSottoscrizioniDistributoris() {
+		return this.sottoscrizioniDistributoris;
+	}
+
+	public void setSottoscrizioniDistributoris(Set sottoscrizioniDistributoris) {
+		this.sottoscrizioniDistributoris = sottoscrizioniDistributoris;
 	}
 
 	public Set getAcquistas() {

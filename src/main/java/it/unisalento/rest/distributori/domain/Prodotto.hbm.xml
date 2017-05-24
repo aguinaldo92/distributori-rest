@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 4-mag-2017 23.58.08 by Hibernate Tools 4.3.1.Final -->
+<!-- Generated 24-mag-2017 22.56.54 by Hibernate Tools 4.3.1.Final -->
 <hibernate-mapping>
     <class name="it.unisalento.rest.distributori.domain.Prodotto" table="prodotto" catalog="distributoridb" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
@@ -11,7 +11,7 @@
         <many-to-one name="categoria" class="it.unisalento.rest.distributori.domain.Categoria" fetch="select">
             <column name="Categoria_ID" not-null="true" />
         </many-to-one>
-        <many-to-one name="stabilimento" class="it.unisalento.rest.distributori.domain.Stabilimento" fetch="select" lazy="false">
+        <many-to-one name="stabilimento" class="it.unisalento.rest.distributori.domain.Stabilimento" fetch="select">
             <column name="Stabilimento_ID" not-null="true" />
         </many-to-one>
         <property name="nome" type="string">

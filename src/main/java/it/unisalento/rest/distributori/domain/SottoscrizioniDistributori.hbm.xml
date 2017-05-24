@@ -3,16 +3,16 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 24-mag-2017 22.56.54 by Hibernate Tools 4.3.1.Final -->
 <hibernate-mapping>
-    <class name="it.unisalento.rest.distributori.domain.CategorieFornite" table="categorie_fornite" catalog="distributoridb" optimistic-lock="version">
+    <class name="it.unisalento.rest.distributori.domain.SottoscrizioniDistributori" table="sottoscrizioni_distributori" catalog="distributoridb" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="categoria" class="it.unisalento.rest.distributori.domain.Categoria" fetch="select" lazy="false">
-            <column name="Categoria_ID" not-null="true" />
-        </many-to-one>
         <many-to-one name="distributore" class="it.unisalento.rest.distributori.domain.Distributore" fetch="select">
             <column name="Distributore_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="persona" class="it.unisalento.rest.distributori.domain.Persona" fetch="select">
+            <column name="Persona_ID" not-null="true" />
         </many-to-one>
     </class>
 </hibernate-mapping>

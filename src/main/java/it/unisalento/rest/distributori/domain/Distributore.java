@@ -1,5 +1,5 @@
 package it.unisalento.rest.distributori.domain;
-// Generated 4-mag-2017 23.58.07 by Hibernate Tools 4.3.1.Final
+// Generated 24-mag-2017 22.56.53 by Hibernate Tools 4.3.1.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -22,10 +22,27 @@ public class Distributore implements java.io.Serializable {
 	private Set acquistas = new HashSet(0);
 	private Set categorieFornites = new HashSet(0);
 	private Set prodottiErogatis = new HashSet(0);
+	private Set sottoscrizioniDistributoris = new HashSet(0);
 
 	public Distributore() {
 	}
 
+	public Distributore(BigDecimal lat, BigDecimal lon, String indirizzo, String posizioneEdificio, Integer stato,
+			Integer numScaffali, Integer numPosti, Integer dipendentePersonaId, Set acquistas, Set categorieFornites,
+			Set prodottiErogatis, Set sottoscrizioniDistributoris) {
+		this.lat = lat;
+		this.lon = lon;
+		this.indirizzo = indirizzo;
+		this.posizioneEdificio = posizioneEdificio;
+		this.stato = stato;
+		this.numScaffali = numScaffali;
+		this.numPosti = numPosti;
+		this.dipendentePersonaId = dipendentePersonaId;
+		this.acquistas = acquistas;
+		this.categorieFornites = categorieFornites;
+		this.prodottiErogatis = prodottiErogatis;
+		this.sottoscrizioniDistributoris = sottoscrizioniDistributoris;
+	}
 
 	public Integer getId() {
 		return this.id;
@@ -121,6 +138,14 @@ public class Distributore implements java.io.Serializable {
 
 	public void setProdottiErogatis(Set prodottiErogatis) {
 		this.prodottiErogatis = prodottiErogatis;
+	}
+
+	public Set getSottoscrizioniDistributoris() {
+		return this.sottoscrizioniDistributoris;
+	}
+
+	public void setSottoscrizioniDistributoris(Set sottoscrizioniDistributoris) {
+		this.sottoscrizioniDistributoris = sottoscrizioniDistributoris;
 	}
 
 }

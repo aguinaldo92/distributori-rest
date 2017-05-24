@@ -1,5 +1,5 @@
 package it.unisalento.rest.distributori.domain;
-// Generated 4-mag-2017 23.58.07 by Hibernate Tools 4.3.1.Final
+// Generated 24-mag-2017 22.56.53 by Hibernate Tools 4.3.1.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -27,6 +27,29 @@ public class Prodotto implements java.io.Serializable {
 	public Prodotto() {
 	}
 
+	public Prodotto(Categoria categoria, Stabilimento stabilimento, String nome, BigDecimal prezzo) {
+		this.categoria = categoria;
+		this.stabilimento = stabilimento;
+		this.nome = nome;
+		this.prezzo = prezzo;
+	}
+
+	public Prodotto(Categoria categoria, Stabilimento stabilimento, String nome, String descrizione, BigDecimal prezzo,
+			BigDecimal scontoUtenti, String foto, String preparazione, String ingredienti, Set famiglieProdottos,
+			Set prodottiErogatis, Set acquistas) {
+		this.categoria = categoria;
+		this.stabilimento = stabilimento;
+		this.nome = nome;
+		this.descrizione = descrizione;
+		this.prezzo = prezzo;
+		this.scontoUtenti = scontoUtenti;
+		this.foto = foto;
+		this.preparazione = preparazione;
+		this.ingredienti = ingredienti;
+		this.famiglieProdottos = famiglieProdottos;
+		this.prodottiErogatis = prodottiErogatis;
+		this.acquistas = acquistas;
+	}
 
 	public Integer getId() {
 		return this.id;

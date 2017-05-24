@@ -13,5 +13,6 @@
   <table-filter match-catalog="distributoridb" match-name="prodotti_erogati"/>
   <table-filter match-catalog="distributoridb" match-name="prodotto"/>
   <table-filter match-catalog="distributoridb" match-name="produttore"/>
+  <table-filter match-catalog="distributoridb" match-name="sottoscrizioni_distributori"/>
   <table-filter match-catalog="distributoridb" match-name="stabilimento"/>
 </hibernate-reverse-engineering>

@@ -1,6 +1,10 @@
 package it.unisalento.rest.distributori.dao;
 
+import java.util.ArrayList;
+
+import it.unisalento.rest.distributori.domain.Distributore;
 import it.unisalento.rest.distributori.domain.Persona;
+import it.unisalento.rest.distributori.domain.SottoscrizioniDistributori;
 
 public interface PersonaDao extends BaseDao<Persona>{
 	
@@ -8,6 +12,10 @@ public interface PersonaDao extends BaseDao<Persona>{
 	
 	public boolean emailExists(String email, Integer my_ID);
 
-	boolean emailExists(String email);
+	public boolean emailExists(String email);
+	
+	public Integer setSottoscrizioneDistributore(SottoscrizioniDistributori sottoscrizione);
+	
+	public ArrayList<Distributore> getSottoscrizioniByPersona(Integer idPersona);
 	
 }
