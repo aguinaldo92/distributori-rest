@@ -22,7 +22,7 @@ public class SottoscrizioniController implements ModelDriven<Object> {
 
 	public HttpHeaders index(){
 		
-		if(model.getIdDistributore() >= 0){//richiesta di setting di una nuova sottoscrizione
+		if(model.getModality().equals("set")){//richiesta di setting di una nuova sottoscrizione
 			
 			Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(model.getIdDistributore(), Distributore.class);
 			Persona persona = FactoryDao.getIstance().getPersonaDao().get(model.getIdPersona(), Persona.class);
@@ -33,11 +33,10 @@ public class SottoscrizioniController implements ModelDriven<Object> {
 			result = new JSONObject();
 			result.put("result", true);
 			result.put("id", sottoscrizione.getId());
-
-			return new DefaultHttpHeaders("create").disableCaching();
+			
 		}
 		
-		else{//richiesta di getting della lista di sottoscrizioni di una persona
+		else if(model.getModality().equals("get")){//richiesta di getting della lista di sottoscrizioni di una persona
 			
 			ArrayList<Distributore> sottoscrizioni = FactoryDao.getIstance().getPersonaDao().getSottoscrizioniByPersona(model.getIdPersona());
 			
@@ -49,11 +48,24 @@ public class SottoscrizioniController implements ModelDriven<Object> {
 			}
 			
 			result = new JSONObject();
-			result.put("distributoriIDs", listDistributori_JSON);
-			result.put("topics", listTopics_JSON);
+			result.put("listDistributori", listDistributori_JSON);
+			result.put("listTopics", listTopics_JSON);
 
-			return new DefaultHttpHeaders("create").disableCaching();
 		}
+		else if(model.getModality().equals("del")){//richiesta di deleting di una sottoscrizione
+			FactoryDao.getIstance().getPersonaDao().deleteSottoscrizione(model.getIdPersona(), model.getIdDistributore());
+			
+			result = new JSONObject();
+			result.put("result", true);
+		}
+		
+		if(result == null){
+			result = new JSONObject();
+			result.put("result", false);
+			result.put("response", "Bad request");
+		}
+		
+		return new DefaultHttpHeaders("create").disableCaching();
 	}
 
 	@Override

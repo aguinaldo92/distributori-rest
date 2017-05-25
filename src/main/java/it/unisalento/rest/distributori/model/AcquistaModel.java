@@ -7,7 +7,7 @@ public class AcquistaModel {
 	private Integer idProdottoErogato;
 	private Integer quantita;
 	private BigDecimal totale_spesa;
-	private Integer idPersona;
+	private Integer idPersona;//se -1 l'acquisto viene registrato con ID_Persona=NULL sul DB
 	private Integer idDistributore;
 	private Integer idProdotto;
 	

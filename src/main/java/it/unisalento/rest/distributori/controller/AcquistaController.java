@@ -22,16 +22,22 @@ public class AcquistaController  implements ModelDriven<Object> {
 	private JSONObject result;
 	
 	public HttpHeaders create(){
-		
-		Persona persona = FactoryDao.getIstance().getPersonaDao().get(model.getIdPersona(), Persona.class);
+
+		Acquista acquisto = new Acquista();
+
 		Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(model.getIdDistributore(), Distributore.class);
 		Prodotto prodotto = FactoryDao.getIstance().getProdottoDao().get(model.getIdProdotto(), Prodotto.class);
 		
-		Acquista acquisto = new Acquista();
 		acquisto.setData(new Date());
 		acquisto.setDistributore(distributore);
-		acquisto.setPersona(persona);
-		acquisto.setProdotto(prodotto);
+		acquisto.setProdotto(prodotto);		
+		if(model.getIdPersona()>=0){
+			Persona persona = FactoryDao.getIstance().getPersonaDao().get(model.getIdPersona(), Persona.class);
+			acquisto.setPersona(persona);
+		}
+		else{
+			acquisto.setPersona(null);
+		}
 		acquisto.setQuantita(model.getQuantita());
 		acquisto.setTotaleSpesa(model.getTotale_spesa());
 		

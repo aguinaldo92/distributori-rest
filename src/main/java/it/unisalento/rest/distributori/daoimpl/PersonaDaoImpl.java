@@ -128,4 +128,26 @@ public class PersonaDaoImpl extends BaseDaoImpl<Persona> implements PersonaDao {
 		}
 	}
 
+	@Override
+	public void deleteSottoscrizione(Integer idPersona, Integer idDistributore) {
+		Session session = null;
+		Transaction tx = null;
+		try{
+			session = HibernateUtil.getSession();
+			tx = session.beginTransaction();
+			String hql = "DELETE SottoscrizioniDistributori as S "
+						+ "WHERE S.persona.id=:idPersona AND S.distributore.id=:idDistributore";
+			Query query = session.createQuery(hql);
+			query.setInteger("idPersona", idPersona);
+			query.setInteger("idDistributore", idDistributore);
+			query.executeUpdate();
+			tx.commit();
+		} catch (Exception e) {
+			tx.rollback();
+			throw e;
+		} finally{
+			session.close();
+		}
+	}
+
 }

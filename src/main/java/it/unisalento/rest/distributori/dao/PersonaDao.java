@@ -18,4 +18,6 @@ public interface PersonaDao extends BaseDao<Persona>{
 	
 	public ArrayList<Distributore> getSottoscrizioniByPersona(Integer idPersona);
 	
+	public void deleteSottoscrizione(Integer idPersona, Integer idDistributore);
+	
 }
