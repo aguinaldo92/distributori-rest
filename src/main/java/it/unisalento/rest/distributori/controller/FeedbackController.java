@@ -2,6 +2,8 @@ package it.unisalento.rest.distributori.controller;
 
 import java.util.Date;
 
+import org.apache.struts2.convention.annotation.InterceptorRef;
+import org.apache.struts2.convention.annotation.InterceptorRefs;
 import org.apache.struts2.rest.DefaultHttpHeaders;
 import org.apache.struts2.rest.HttpHeaders;
 
@@ -13,6 +15,8 @@ import it.unisalento.rest.distributori.factory.FactoryDao;
 import it.unisalento.rest.distributori.model.FeedbackModel;
 import net.sf.json.JSONObject;
 
+@InterceptorRefs({
+	@InterceptorRef("LoginStack")})
 public class FeedbackController implements ModelDriven<Object> {
 	
 	private FeedbackModel model = new FeedbackModel();

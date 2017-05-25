@@ -1,5 +1,7 @@
 package it.unisalento.rest.distributori.controller;
 
+import org.apache.struts2.convention.annotation.InterceptorRef;
+import org.apache.struts2.convention.annotation.InterceptorRefs;
 import org.apache.struts2.rest.DefaultHttpHeaders;
 import org.apache.struts2.rest.HttpHeaders;
 
@@ -9,6 +11,8 @@ import it.unisalento.rest.distributori.domain.Prodotto;
 import it.unisalento.rest.distributori.factory.FactoryDao;
 import net.sf.json.JSONObject;
 
+@InterceptorRefs({
+		@InterceptorRef("LoginStack")})
 public class Prodotto_detailController implements ModelDriven<Object> {
 	
 	private Object model = new Object();

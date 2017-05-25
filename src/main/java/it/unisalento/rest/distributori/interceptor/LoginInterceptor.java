@@ -20,6 +20,8 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 
+import net.sf.json.JSONObject;
+
 public class LoginInterceptor implements Interceptor{
 
 	@Override
@@ -58,13 +60,14 @@ public class LoginInterceptor implements Interceptor{
 				} 
 			}
 			HttpServletResponse response = ServletActionContext.getResponse();
-			response.addHeader("Authorization","");
+			response.addHeader("Authorization","Not authorized");
 
 			//HttpServletResponse response = (HttpServletResponse) actionContext.get(StrutsStatics.HTTP_RESPONSE); risposta corretta da interceptor
 		} catch (UnsupportedEncodingException exception){
 			//UTF-8 encoding not supported
 		} catch (JWTVerificationException exception){
 		}
+		
 		return null;
 	}
 
