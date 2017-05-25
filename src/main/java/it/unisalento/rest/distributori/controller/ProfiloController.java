@@ -15,12 +15,14 @@ import net.sf.json.JSONObject;
 	@InterceptorRef("LoginStack")})
 public class ProfiloController implements ModelDriven<Object> {
 
-	private Object model_GET = new Object();
+	private Object model_GET;
 	private Integer idPersona;
 	private ClienteModel model_POST = new ClienteModel();
 	private JSONObject result_POST;
 	
 	public HttpHeaders index(){
+		
+		model_GET = new Object();
 		
 		JSONObject persona_JSON = new JSONObject();
 		
@@ -37,7 +39,7 @@ public class ProfiloController implements ModelDriven<Object> {
 	}
 	
 	public HttpHeaders create(){//update del profilo utente
-
+		
 		Persona persona = FactoryDao.getIstance().getPersonaDao().get(model_POST.getId(), Persona.class);
 		
 		persona.setCognome(model_POST.getCognome());
@@ -58,14 +60,14 @@ public class ProfiloController implements ModelDriven<Object> {
 	@Override
 	public Object getModel() {
 		
-		if(idPersona != null){//Se la chiamata è una GET delle informazioni di profilo
+		if(model_GET != null){//Se la chiamata è una GET delle informazioni di profilo
 			return model_GET;//IN - OUT
 		}
 		else if (result_POST != null) {//Se la chiamata è una POST per settare le informazioni di profilo aggiornate
 			return result_POST;//OUT
 		}
-		return model_POST;//IN
 		
+		return model_POST;//IN
 	}
 
 	public void setIdPersona(Integer idPersona) {
