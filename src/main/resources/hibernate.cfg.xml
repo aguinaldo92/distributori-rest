@@ -13,18 +13,20 @@
         <property name="hibernate.search.autoregister_listeners">false</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
-        <mapping resource="it/unisalento/rest/distributori/domain/Feedback.hbm.xml" />
-        <mapping resource="it/unisalento/rest/distributori/domain/ProdottiErogati.hbm.xml" />
-        <mapping resource="it/unisalento/rest/distributori/domain/Persona.hbm.xml" />
-        <mapping resource="it/unisalento/rest/distributori/domain/Produttore.hbm.xml" />
-        <mapping resource="it/unisalento/rest/distributori/domain/Categoria.hbm.xml" />
-        <mapping resource="it/unisalento/rest/distributori/domain/CategorieFornite.hbm.xml" />
-        <mapping resource="it/unisalento/rest/distributori/domain/FamiglieProdotto.hbm.xml" />
+        
         <mapping resource="it/unisalento/rest/distributori/domain/Distributore.hbm.xml" />
-        <mapping resource="it/unisalento/rest/distributori/domain/Famiglia.hbm.xml" />
-        <mapping resource="it/unisalento/rest/distributori/domain/Prodotto.hbm.xml" />
+        <mapping resource="it/unisalento/rest/distributori/domain/CategorieFornite.hbm.xml" />
         <mapping resource="it/unisalento/rest/distributori/domain/SottoscrizioniDistributori.hbm.xml" />
-        <mapping resource="it/unisalento/rest/distributori/domain/Stabilimento.hbm.xml" />
+        <mapping resource="it/unisalento/rest/distributori/domain/FamiglieProdotto.hbm.xml" />
         <mapping resource="it/unisalento/rest/distributori/domain/Acquista.hbm.xml" />
+        <mapping resource="it/unisalento/rest/distributori/domain/Famiglia.hbm.xml" />
+        <mapping resource="it/unisalento/rest/distributori/domain/Produttore.hbm.xml" />
+        <mapping resource="it/unisalento/rest/distributori/domain/ProdottiErogati.hbm.xml" />
+        <mapping resource="it/unisalento/rest/distributori/domain/Prodotto.hbm.xml" />
+        <mapping resource="it/unisalento/rest/distributori/domain/Feedback.hbm.xml" />
+        <mapping resource="it/unisalento/rest/distributori/domain/Categoria.hbm.xml" />
+        <mapping resource="it/unisalento/rest/distributori/domain/Persona.hbm.xml" />
+        <mapping resource="it/unisalento/rest/distributori/domain/Stabilimento.hbm.xml" />
+
     </session-factory>
 </hibernate-configuration>

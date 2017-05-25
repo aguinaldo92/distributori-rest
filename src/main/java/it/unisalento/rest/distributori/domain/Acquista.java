@@ -1,5 +1,5 @@
 package it.unisalento.rest.distributori.domain;
-// Generated 24-mag-2017 22.56.53 by Hibernate Tools 4.3.1.Final
+// Generated 25-mag-2017 12.44.32 by Hibernate Tools 4.3.1.Final
 
 import java.math.BigDecimal;
 import java.util.Date;
