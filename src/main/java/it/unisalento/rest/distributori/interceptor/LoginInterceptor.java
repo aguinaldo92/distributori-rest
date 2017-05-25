@@ -59,17 +59,17 @@ public class LoginInterceptor implements Interceptor{
 					return invocation.invoke();
 				} 
 			}
-			HttpServletResponse response = ServletActionContext.getResponse();
-			response.addHeader("Authorization","Not authorized");
-
+			
 			//HttpServletResponse response = (HttpServletResponse) actionContext.get(StrutsStatics.HTTP_RESPONSE); risposta corretta da interceptor
 		} catch (UnsupportedEncodingException exception){
 			//UTF-8 encoding not supported
 		} catch (JWTVerificationException exception){
 		}
-		
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.addHeader("Authorization","Not authorized");
 		return null;
 	}
+	
 
 }
 
