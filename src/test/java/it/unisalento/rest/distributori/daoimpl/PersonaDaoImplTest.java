@@ -6,12 +6,15 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
 import it.unisalento.rest.distributori.dao.PersonaDao;
+import it.unisalento.rest.distributori.domain.Distributore;
 import it.unisalento.rest.distributori.domain.Persona;
+import it.unisalento.rest.distributori.domain.SottoscrizioniDistributori;
 import it.unisalento.rest.distributori.factory.FactoryDao;
 
 public class PersonaDaoImplTest {
@@ -114,4 +117,40 @@ public class PersonaDaoImplTest {
 		}
 		assertFalse(error);
 	}
+
+	@Test
+	public void testSetGetDeleteSottoscrizioneDistributore() throws Exception {
+		
+		//test di setSottoscrizioneDistributore
+		SottoscrizioniDistributori sottoscrizione = new SottoscrizioniDistributori(FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class), 
+				FactoryDao.getIstance().getPersonaDao().get(19, Persona.class));
+		sottoscrizione.setId(FactoryDao.getIstance().getPersonaDao().setSottoscrizioneDistributore(sottoscrizione));
+		assertTrue(sottoscrizione.getId()>0);
+		
+		//test di getSottoscrizioniByPersona
+		ArrayList<Distributore> distributori = FactoryDao.getIstance().getPersonaDao().getSottoscrizioniByPersona(19);
+		assertTrue(distributori.size()>0);
+		boolean distributoreExists = false;
+		for (Distributore distributore : distributori) {
+			if (distributore.getId()==3)
+			{
+				distributoreExists = true;
+			}
+		}
+		assertTrue(distributoreExists);
+		
+		//test di deleteSottoscrizione
+		FactoryDao.getIstance().getPersonaDao().deleteSottoscrizione(19, 3);
+		
+		distributori = FactoryDao.getIstance().getPersonaDao().getSottoscrizioniByPersona(19);
+		distributoreExists = false;
+		for (Distributore distributore : distributori) {
+			if (distributore.getId()==3)
+			{
+				distributoreExists = true;
+			}
+		}
+		assertFalse(distributoreExists);
+	}
+	
 }
