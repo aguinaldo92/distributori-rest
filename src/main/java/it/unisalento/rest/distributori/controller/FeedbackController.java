@@ -23,21 +23,35 @@ public class FeedbackController implements ModelDriven<Object> {
 	private JSONObject result;
 	
 	public HttpHeaders create(){
-		
-		Persona persona = FactoryDao.getIstance().getPersonaDao().get(model.getIdPersona(), Persona.class);
-		
-		Feedback feedback = new Feedback();
-		feedback.setData(new Date());
-		feedback.setLetto(Byte.valueOf("0"));
-		feedback.setPersona(persona);
-		feedback.setTesto(model.getTesto());
-		
-		//salvataggio feedback nel DB
-		feedback.setId(FactoryDao.getIstance().getFeedbackDao().set(feedback));
-		result = new JSONObject();
-		result.put("result", true);
-		result.put("id", feedback.getId());
-		
+		try{
+			Persona persona = null;
+			if(model != null && model.getIdPersona() != null  ){
+				
+				if(model.getIdPersona() > 0){
+					
+					persona = FactoryDao.getIstance().getPersonaDao().get(model.getIdPersona(), Persona.class);
+					Feedback feedback = new Feedback();
+					feedback.setData(new Date());
+					feedback.setLetto(Byte.valueOf("0"));
+					feedback.setPersona(persona);
+					feedback.setTesto(model.getTesto());
+					
+					//salvataggio feedback nel DB
+					feedback.setId(FactoryDao.getIstance().getFeedbackDao().set(feedback));
+					result = new JSONObject();
+					result.put("result", true);
+					result.put("id", feedback.getId());
+				}
+			}
+			result = new JSONObject();
+			result.put("result", false);
+			result.put("message", "Impossibile inserire feedback");
+
+		} catch (Exception e) {
+			result = new JSONObject();
+			result.put("result", false);
+			result.put("message", e.getLocalizedMessage());
+		}
 		return new DefaultHttpHeaders("create").disableCaching();
 	}
 
